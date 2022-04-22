@@ -14,5 +14,5 @@ You can build and start the project with Docker or yarn or pnpm or npm
 A heroku dyno is configured and all you have to do to deploy to prod is this: `git push heroku master` ( if youre logged
 in to Heroku )
 
-heroku domain: **https://kbe-frontend.herokuapp.com**
+heroku domain: **https://kbe-frontend.herokuapp.com/**
 
