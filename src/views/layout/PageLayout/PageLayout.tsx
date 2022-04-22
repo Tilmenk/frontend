@@ -2,7 +2,7 @@ import { Box, Container } from "@chakra-ui/react";
 import { FC } from "react";
 import Head from "next/head";
 import BackgroundDesktop from "../../../assets/desktop/background/background1.svg";
-import Background2Desktop from "../../../assets/desktop/background/background2.svg";
+import BackgroundDesktop_md from "../../../assets/desktop/background/background_md.svg";
 import BackgroundMobile from "../../../assets/mobile/background/background1.svg";
 import Background2Mobile from "../../../assets/mobile/background/background2.svg";
 import { AppProps } from "next/app";
@@ -37,11 +37,12 @@ export const PageLayout: FC<LayoutProps> = (props) => {
           defaultComponent={
             <>
               <BackgroundDesktop />
-              <Box w={"100%"} h={300} bgColor={COLOR.foreground2} />
-              <Background2Desktop />
+             {/* <Box w={"100%"} h={300} bgColor={COLOR.foreground2} />*/}
+              {/*<Background2Desktop />*/}
             </>
           }
           breakpointComponents={{
+            [BREAKPOINTNAME.md] : (   <BackgroundDesktop_md />),
             [BREAKPOINTNAME.sm]: (
               <>
                 <BackgroundMobile />
@@ -52,9 +53,7 @@ export const PageLayout: FC<LayoutProps> = (props) => {
           }}
         />
       </Box>
-      <Container maxW="container.md" pt={PADDING.lg} overflow={"hidden"}>
         {props.children}
-      </Container>
     </Box>
   );
 };

@@ -5,6 +5,7 @@ import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import { COLOR, COLORNAME } from "../theme/Color";
 import { MediaContextProvider } from "../lib/responsive/Media";
+import {useRouter} from "next/router";
 
 const theme = extendTheme({
   styles: {
@@ -22,12 +23,13 @@ const theme = extendTheme({
 });
 
 const Website = (props: AppProps) => {
+
   const { router, pageProps, Component } = props;
   return (
     <ChakraProvider theme={theme}>
       <MediaContextProvider>
         <PageLayout router={router}>
-          <Component {...pageProps} key={router.route} />
+          <Component {...pageProps} router={router} key={router.route} />
         </PageLayout>
       </MediaContextProvider>
     </ChakraProvider>
