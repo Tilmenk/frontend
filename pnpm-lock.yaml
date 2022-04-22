@@ -18,11 +18,11 @@ specifiers:
   eslint: ^8.8.0
   eslint-config-next: ^12.0.10
   framer-motion: ^6.2.4
+  lottie-react: 2.2.1
   next: ^12.0.10
   prettier: ^2.5.1
   react: ^17.0.2
   react-dom: ^17.0.2
-  react-lottie: ^1.2.3
   typescript: ^4.5.5
 
 dependencies:
@@ -37,10 +37,10 @@ dependencies:
   '@svgr/webpack': 6.2.1
   '@types/react-lottie': 1.2.6
   framer-motion: 6.2.4_sfoxds7t5ydpegc3knd667wn6m
+  lottie-react: 2.2.1_sfoxds7t5ydpegc3knd667wn6m
   next: 12.0.10_2wv3v375kohid263twuyamahca
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
-  react-lottie: 1.2.3_react@17.0.2
 
 devDependencies:
   '@types/node': 17.0.16
@@ -2954,13 +2954,6 @@ packages:
       - supports-color
     dev: false
 
-  /babel-runtime/6.26.0:
-    resolution: {integrity: sha1-llxwWGaOgrVde/4E/yM3vItWR/4=}
-    dependencies:
-      core-js: 2.6.12
-      regenerator-runtime: 0.11.1
-    dev: false
-
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
@@ -3088,12 +3081,6 @@ packages:
     resolution: {integrity: sha512-VaJUunCZLnxuDbo1rNOzwbet9E1K9joiXS5+DQMPtgxd24wfsZbJZMMfQLGYMlCUvSxLfsRUUhoOR2x28mFfeg==}
     requiresBuild: true
     dev: true
-
-  /core-js/2.6.12:
-    resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
-    deprecated: core-js@<3.4 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
-    requiresBuild: true
-    dev: false
 
   /cosmiconfig/6.0.0:
     resolution: {integrity: sha512-xb3ZL6+L8b9JLLCx3ZdoZy4+2ECphCMo2PwqgP1tlfVq6M6YReyzBJtvWWtbDSpNr9hn96pkCiZqUcFEc+54Qg==}
@@ -4073,6 +4060,17 @@ packages:
     dependencies:
       js-tokens: 4.0.0
 
+  /lottie-react/2.2.1_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-lAdIUw+zeHLX3gtyLkisa4QM9NkTUUeZTsEL53laBEsjIH4JibgwkioZuza8CtwZ7/cpPZRbCRXWKfiuaDZWww==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      lottie-web: 5.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /lottie-web/5.8.1:
     resolution: {integrity: sha512-9gIizWADlaHC2GCt+D+yNpk5l2clZQFqnVWWIVdY0LnxC/uLa39dYltAe3fcmC/hrZ2IUQ8dLlY0O934Npjs7Q==}
     dev: false
@@ -4406,17 +4404,6 @@ packages:
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  /react-lottie/1.2.3_react@17.0.2:
-    resolution: {integrity: sha512-qLCERxUr8M+4mm1LU0Ruxw5Y5Fn/OmYkGfnA+JDM/dZb3oKwVAJCjwnjkj9TMHtzR2U6sMEUD3ZZ1RaHagM7kA==}
-    engines: {npm: ^3.0.0}
-    peerDependencies:
-      react: ^0.14.7 || ^15.0.0 || ^16.0.0
-    dependencies:
-      babel-runtime: 6.26.0
-      lottie-web: 5.8.1
-      react: 17.0.2
-    dev: false
-
   /react-remove-scroll-bar/2.2.0_udcsdvdzjr5ns727jqoeu7kyda:
     resolution: {integrity: sha512-UU9ZBP1wdMR8qoUs7owiVcpaPwsQxUDC2lypP6mmixaGlARZa7ZIBx1jcuObLdhMOvCsnZcvetOho0wzPa9PYg==}
     engines: {node: '>=8.5.0'}
@@ -4486,10 +4473,6 @@ packages:
 
   /regenerate/1.4.2:
     resolution: {integrity: sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==}
-    dev: false
-
-  /regenerator-runtime/0.11.1:
-    resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
     dev: false
 
   /regenerator-runtime/0.13.9:

@@ -1,11 +1,6 @@
 import {Box, Button, chakra, Container, Flex, HStack, useColorModeValue} from "@chakra-ui/react";
 import { COLOR } from "../theme/Color";
-import { Text } from "../views/atoms/Text/Text";
-import { TYPO } from "../theme/Typo";
-import { Blob } from "../views/atoms/animations/Blob/Blob";
-import { PADDING } from "../theme/LayoutSizes";
-import { ChooseResponsive } from "../lib/responsive/ChooseResponsive";
-import { BREAKPOINTNAME } from "../theme/Breakpoints";
+
 import React from "react";
 import {Router} from "next/router";
 
