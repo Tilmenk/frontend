@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ThemeConfig } from "@chakra-ui/react";
 import { MainLayout } from "../views/layout/MainLayout/MainLayout";
 import { AppProps } from "next/app";
 import { extendTheme } from "@chakra-ui/react";

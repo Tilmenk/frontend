@@ -27,7 +27,7 @@ const IndexPage: React.FC<{ router: Router; currencyState: CurrencyState }> = (
     <>
       <Flex
         px={4}
-        py={{ sm: 32, md: 6, lg: 16, xl: 32 }}
+        py={{ sm: 6, md: 6, lg: 16, xl: 32 }}
         justifyContent={{ sm: "center", md: "flex-end" }}
         alignItems={"flex-start"}
         //backgroundColor={"green"}
@@ -36,15 +36,22 @@ const IndexPage: React.FC<{ router: Router; currencyState: CurrencyState }> = (
       </Flex>
       <Flex>
         <VStack
-          ml={{ sm: 32, md: 16, lg: 16, xl: 32 }}
+          ml={{ sm: 8, md: 16, lg: 16, xl: 32 }}
           alignItems={"flex-start"}
         >
-          <Heading fontFamily={"Outfit"} size={"4xl"}>
-            Welcome!
-          </Heading>
           <chakra.p mb={5} color={COLOR.white} fontSize={{ md: "lg" }}>
-            This project was created by Tilmann Schade & <br />
-            Henk van der Sloot for KBE@HTW-Berlin:Ai
+            This project was created by <strong>Tilmann Schade</strong> & <br />
+            <strong>Henk van der Sloot</strong> for
+            <strong>
+              <span
+                style={{
+                  color: useColorModeValue(COLOR.foreground2, "#76B900"),
+                }}
+              >
+                {" "}
+                KBE@HTW-Berlin:Ai
+              </span>
+            </strong>
           </chakra.p>
         </VStack>
       </Flex>

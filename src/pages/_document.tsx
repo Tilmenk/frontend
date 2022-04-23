@@ -9,7 +9,7 @@ export default function Document() {
       <body
         style={{ margin: 0, height: "100vh", width: "100vw", maxWidth: "100%" }}
       >
-        <ColorModeScript initialColorMode={theme.config.initialColormode} />
+        <ColorModeScript initialColorMode={"dark"} />
         <Main />
         <NextScript />
       </body>
