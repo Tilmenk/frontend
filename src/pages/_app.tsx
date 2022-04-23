@@ -5,12 +5,15 @@ import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import { COLOR, COLORNAME } from "../theme/Color";
 import { MediaContextProvider } from "../lib/responsive/Media";
+import React, { FC, useEffect, useState } from "react";
+import { CurrencyProvider } from "../lib/currency/CurrencyProvider";
 
 const theme = extendTheme({
   styles: {
     global: (props) => ({
       // styles for the `body`
       body: {
+        fontFamily: "Outfit",
         bg: mode(
           COLOR[COLORNAME.background1],
           COLOR[COLORNAME.background1_dark]
@@ -30,12 +33,15 @@ const theme = extendTheme({
 
 const Website = (props: AppProps) => {
   const { router, pageProps, Component } = props;
+
   return (
     <ChakraProvider theme={theme}>
       <MediaContextProvider>
-        <MainLayout router={router}>
-          <Component {...pageProps} router={router} key={router.route} />
-        </MainLayout>
+        <CurrencyProvider>
+          <MainLayout router={router}>
+            <Component {...pageProps} router={router} key={router.route} />
+          </MainLayout>
+        </CurrencyProvider>
       </MediaContextProvider>
     </ChakraProvider>
   );

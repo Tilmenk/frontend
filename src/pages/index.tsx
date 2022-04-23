@@ -14,10 +14,13 @@ import React, { useState } from "react";
 import { Router } from "next/router";
 import { Diglett } from "../views/atoms/animations/Diglett/Diglett";
 import { Greeting } from "../views/organisms/Greeting/Greeting";
+import { CurrencyState } from "../lib/currency/CurrencyProvider";
 
 const pikachu = require("../../public/images/pikachu.png");
 
-const IndexPage: React.FC<{ router: Router }> = (props) => {
+const IndexPage: React.FC<{ router: Router; currencyState: CurrencyState }> = (
+  props
+) => {
   return (
     <>
       <Flex

@@ -12,12 +12,18 @@ import { BREAKPOINTNAME } from "../../../theme/Breakpoints";
 import { ChooseResponsive } from "../../../lib/responsive/ChooseResponsive";
 import { Header } from "../../organisms/Header/Header";
 import { COLOR } from "../../../theme/Color";
+import {
+  CurrencyProvider,
+  CurrencyState,
+} from "../../../lib/currency/CurrencyProvider";
 
 export type LayoutProps = {
   router: AppProps["router"];
 };
 
-export const MainLayout: FC<LayoutProps> = (props) => {
+export const MainLayout: FC<LayoutProps & { currencyState?: CurrencyState }> = (
+  props
+) => {
   return (
     <Box as={"main"} h={"100vh"} w={"100%"}>
       <Head>
@@ -34,7 +40,7 @@ export const MainLayout: FC<LayoutProps> = (props) => {
           rel="stylesheet"
         />
       </Head>
-      <Header router={props.router} />
+      <Header router={props.router} currencyState={props.currencyState} />
       <Box
         height={"auto"}
         width={"100%"}

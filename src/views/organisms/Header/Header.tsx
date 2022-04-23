@@ -15,7 +15,7 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import { FaMoon, FaSun, FaHeart } from "react-icons/fa";
+import { FaMoon, FaSun, FaHeart, FaBitcoin } from "react-icons/fa";
 import {
   AiFillGithub,
   AiOutlineMenu,
@@ -23,21 +23,33 @@ import {
   AiOutlineInbox,
   AiFillShop,
 } from "react-icons/ai";
+import { BiDollar, BiEuro } from "react-icons/bi";
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import React from "react";
 import { useViewportScroll } from "framer-motion";
 import { COLOR } from "../../../theme/Color";
 import { Diglett } from "../../atoms/animations/Diglett/Diglett";
 import { MobileNav } from "./MobileNav";
+import {
+  CURRENCY,
+  CurrencyProvider,
+  CurrencyState,
+  useCurrency,
+} from "../../../lib/currency/CurrencyProvider";
 
-export const Header = (props: { router: Router }) => {
+export const Header = (props: {
+  router: Router;
+  currencyState: CurrencyState;
+}) => {
+  const currencyContext = useCurrency();
+
   const mobileNav = useDisclosure();
 
   const { toggleColorMode: toggleMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
-  const backgroundColor = useColorModeValue(COLOR.foreground4, "gray.800");
+  const backgroundColor = useColorModeValue(COLOR.foreground3, "gray.800");
   const ref = React.useRef();
   const [y, setY] = React.useState(0);
   // @ts-ignore
@@ -51,11 +63,19 @@ export const Header = (props: { router: Router }) => {
   const ShopButton = (
     <Button
       ml={2}
-      leftIcon={<Icon as={AiFillShop} w="4" h="4" color="red.500" mr="2" />}
+      leftIcon={
+        <Icon
+          as={AiFillShop}
+          w="4"
+          h="4"
+          color={useColorModeValue(COLOR.black, COLOR.white)}
+          mr="2"
+        />
+      }
       variant="solid"
       onClick={() => props.router.push("/shop")}
-      color={COLOR.black}
-      backgroundColor={COLOR.white}
+      color={useColorModeValue(COLOR.black, COLOR.white)}
+      backgroundColor={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
     >
       Shop
     </Button>
@@ -63,20 +83,20 @@ export const Header = (props: { router: Router }) => {
 
   const HomeButton = (
     <Button
+      style={{ fontFamily: "Outfit", fontSize: "25px" }}
       leftIcon={<Image src={"/images/pikachu.png"} height={30} w={30} />}
-      variant="outline"
+      variant="ghost"
       onClick={() => {
         props.router.replace("/");
       }}
-      color={COLOR.black}
-      backgroundColor={COLOR.white}
+      color={useColorModeValue(COLOR.black, COLOR.white)}
     >
       Home
     </Button>
   );
 
   return (
-    <Box pos="relative">
+    <Box pos="relative" maxW={"100%"}>
       <chakra.header
         ref={ref}
         shadow={y > height ? "sm" : undefined}
@@ -96,7 +116,7 @@ export const Header = (props: { router: Router }) => {
               w="full"
               maxW="824px"
               align="center"
-              color="gray.400"
+              color={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
             >
               <HStack spacing="5" display={{ base: "none", md: "flex" }}>
                 <Link
@@ -108,23 +128,44 @@ export const Header = (props: { router: Router }) => {
                     as={AiFillGithub}
                     display="block"
                     transition="color 0.2s"
-                    w="5"
-                    h="5"
+                    w="7"
+                    h="7"
                     _hover={{ color: "gray.600" }}
                   />
                 </Link>
               </HStack>
               <IconButton
                 size="md"
-                fontSize="lg"
+                fontSize="2xl"
                 aria-label={`Switch to ${text} mode`}
                 variant="ghost"
-                color="current"
+                color={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
                 ml={{ base: "0", md: "3" }}
                 onClick={toggleMode}
                 icon={<SwitchIcon />}
               />
+              <IconButton
+                size="md"
+                fontSize="3xl"
+                aria-label={`Switch to ${text} mode`}
+                variant="ghost"
+                color={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
+                ml={{ base: "0", md: "3" }}
+                onClick={() => {
+                  currencyContext.toggleCurrency();
+                }}
+                icon={
+                  currencyContext.currencySelected === CURRENCY.euro ? (
+                    <BiEuro />
+                  ) : currencyContext.currencySelected === CURRENCY.dollar ? (
+                    <BiDollar />
+                  ) : (
+                    <FaBitcoin />
+                  )
+                }
+              />
               {ShopButton}
+
               <IconButton
                 display={{ base: "flex", md: "none" }}
                 aria-label="Open menu"

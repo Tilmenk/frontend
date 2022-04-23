@@ -1,9 +1,12 @@
 ## KBE - frontend
 
 ### description
+[![Technologie](https://img.shields.io/badge/17.0.2-react-blue)](https://es.reactjs.org/)
+[![Technologie](https://img.shields.io/badge/12.0.2-next-yellow)](https://nextjs.org/)
+[![Technologie](https://img.shields.io/badge/1.8.3-chakra--ui%2Freact-brightgreen)](https://chakra-ui.com/)
 
-This **NextJS** + **ChakraUI** Project builds the frontend and can display various Pokemon that get fetched out of our Microservices <br/>
-It uses **React 17** and **Next 12**<br/>
+This Project builds the frontend and can display various Pokemon that get fetched out of our Microservices <br/>
+It uses **React** with **chakra-ui** components and **Next** for serverside rendering<br/>
 
 #### running the project
 
