@@ -1,26 +1,23 @@
 import { Box, Container } from "@chakra-ui/react";
 import { FC } from "react";
 import Head from "next/head";
-import BackgroundDesktop from "../../../assets/desktop/background/background1.svg";
-import BackgroundDesktop_md from "../../../assets/desktop/background/background_md.svg";
-import BackgroundMobile from "../../../assets/mobile/background/background1.svg";
-import Background2Mobile from "../../../assets/mobile/background/background2.svg";
+import BackgroundDesktop_lg from "../../../../public/backgrounds/desktop/background_lg.svg";
+import BackgroundDesktop_md from "../../../../public/backgrounds/desktop/background_md.svg";
+import BackgroundMobile from "../../../../public/backgrounds/mobile/background.svg";
 import { AppProps } from "next/app";
 import { BREAKPOINTNAME } from "../../../theme/Breakpoints";
 import { ChooseResponsive } from "../../../lib/responsive/ChooseResponsive";
-import { PADDING } from "../../../theme/LayoutSizes";
-import { COLOR } from "../../../theme/Color";
 
 export type LayoutProps = {
   router: AppProps["router"];
 };
 
-export const PageLayout: FC<LayoutProps> = (props) => {
+export const MainLayout: FC<LayoutProps> = (props) => {
   return (
-    <Box as={"main"}>
+    <Box as={"main"} h={"100vh"} w={"100%"}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Henk - Home</title>
+        <title>KBE - Frontend</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -32,28 +29,27 @@ export const PageLayout: FC<LayoutProps> = (props) => {
           rel="stylesheet"
         />
       </Head>
-      <Box height={"auto"} width={"100vw"} position={"absolute"} zIndex={-1}>
+      <Box
+        height={"auto"}
+        width={"100%"}
+        position={"absolute"}
+        zIndex={-1}
+        backgroundColor={"green"}
+      >
         <ChooseResponsive
-          defaultComponent={
-            <>
-              <BackgroundDesktop />
-             {/* <Box w={"100%"} h={300} bgColor={COLOR.foreground2} />*/}
-              {/*<Background2Desktop />*/}
-            </>
-          }
+          defaultComponent={<BackgroundDesktop_lg />}
           breakpointComponents={{
-            [BREAKPOINTNAME.md] : (   <BackgroundDesktop_md />),
+            [BREAKPOINTNAME.lg]: <BackgroundDesktop_md />,
+            [BREAKPOINTNAME.md]: <BackgroundDesktop_md />,
             [BREAKPOINTNAME.sm]: (
               <>
                 <BackgroundMobile />
-                <Box w={"100%"} h={100} bgColor={COLOR.foreground2} />
-                <Background2Mobile />
               </>
             ),
           }}
         />
       </Box>
-        {props.children}
+      {props.children}
     </Box>
   );
 };

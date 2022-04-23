@@ -3,13 +3,15 @@ export const BREAKPOINTNAME = {
   md: "md",
   lg: "lg",
   xl: "xl",
+  xxl: "xxl",
 } as const;
 
 export type BreakpointName = keyof typeof BREAKPOINTNAME;
 
 export const BREAKPOINT = {
-  [BREAKPOINTNAME.sm]: 0,
-  [BREAKPOINTNAME.md]: 675,
-  [BREAKPOINTNAME.lg]: 1024,
-  [BREAKPOINTNAME.xl]: 1192,
+  [BREAKPOINTNAME.sm]: 320,
+  [BREAKPOINTNAME.md]: 768,
+  [BREAKPOINTNAME.lg]: 960,
+  [BREAKPOINTNAME.xl]: 1200,
+  [BREAKPOINTNAME.xxl]: 1536,
 } as const;

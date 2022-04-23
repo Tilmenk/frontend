@@ -1,11 +1,10 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { PageLayout } from "../views/layout/PageLayout/PageLayout";
+import { MainLayout } from "./layout/MainLayout/MainLayout";
 import { AppProps } from "next/app";
 import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import { COLOR, COLORNAME } from "../theme/Color";
 import { MediaContextProvider } from "../lib/responsive/Media";
-import {useRouter} from "next/router";
 
 const theme = extendTheme({
   styles: {
@@ -20,17 +19,23 @@ const theme = extendTheme({
       },
     }),
   },
+  breakpoints: {
+    sm: "320px",
+    md: "768px",
+    lg: "960px",
+    xl: "1200px",
+    "2xl": "1536px",
+  },
 });
 
 const Website = (props: AppProps) => {
-
   const { router, pageProps, Component } = props;
   return (
     <ChakraProvider theme={theme}>
       <MediaContextProvider>
-        <PageLayout router={router}>
+        <MainLayout router={router}>
           <Component {...pageProps} router={router} key={router.route} />
-        </PageLayout>
+        </MainLayout>
       </MediaContextProvider>
     </ChakraProvider>
   );

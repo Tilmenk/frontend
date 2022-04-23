@@ -6,7 +6,9 @@ export default function Document() {
   return (
     <Html>
       <Head />
-      <body>
+      <body
+        style={{ margin: 0, height: "100vh", width: "100vw", maxWidth: "100%" }}
+      >
         <ColorModeScript initialColorMode={theme.config.initialColormode} />
         <Main />
         <NextScript />
