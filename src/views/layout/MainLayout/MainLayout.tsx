@@ -47,6 +47,7 @@ export const MainLayout: FC<LayoutProps & { currencyState?: CurrencyState }> = (
         position={"absolute"}
         zIndex={-1}
         backgroundColor={"green"}
+        overflowX={"hidden"}
       >
         <ChooseResponsive
           defaultComponent={useColorModeValue(
