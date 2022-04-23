@@ -7,6 +7,7 @@ import { COLOR, COLORNAME } from "../theme/Color";
 import { MediaContextProvider } from "../lib/responsive/Media";
 import React, { FC, useEffect, useState } from "react";
 import { CurrencyProvider } from "../lib/currency/CurrencyProvider";
+import { LoginProvider } from "../lib/login/LoginProvider";
 
 const theme = extendTheme({
   styles: {
@@ -37,11 +38,13 @@ const Website = (props: AppProps) => {
   return (
     <ChakraProvider theme={theme}>
       <MediaContextProvider>
-        <CurrencyProvider>
-          <MainLayout router={router}>
-            <Component {...pageProps} router={router} key={router.route} />
-          </MainLayout>
-        </CurrencyProvider>
+        <LoginProvider>
+          <CurrencyProvider>
+            <MainLayout router={router}>
+              <Component {...pageProps} router={router} key={router.route} />
+            </MainLayout>
+          </CurrencyProvider>
+        </LoginProvider>
       </MediaContextProvider>
     </ChakraProvider>
   );
