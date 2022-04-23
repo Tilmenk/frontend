@@ -7,6 +7,8 @@ import {
   HStack,
   useColorModeValue,
   Image,
+  Heading,
+  VStack,
 } from "@chakra-ui/react";
 import { COLOR } from "../theme/Color";
 
@@ -31,6 +33,20 @@ const IndexPage: React.FC<{ router: Router; currencyState: CurrencyState }> = (
         //backgroundColor={"green"}
       >
         <Greeting router={props.router} />
+      </Flex>
+      <Flex>
+        <VStack
+          ml={{ sm: 32, md: 16, lg: 16, xl: 32 }}
+          alignItems={"flex-start"}
+        >
+          <Heading fontFamily={"Outfit"} size={"4xl"}>
+            Welcome!
+          </Heading>
+          <chakra.p mb={5} color={COLOR.white} fontSize={{ md: "lg" }}>
+            This project was created by Tilmann Schade & <br />
+            Henk van der Sloot for KBE@HTW-Berlin:Ai
+          </chakra.p>
+        </VStack>
       </Flex>
     </>
   );

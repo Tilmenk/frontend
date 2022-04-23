@@ -15,7 +15,7 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import { FaMoon, FaSun, FaHeart, FaBitcoin } from "react-icons/fa";
+import { FaMoon, FaSun, FaHeart, FaBitcoin, FaShopify } from "react-icons/fa";
 import {
   AiFillGithub,
   AiOutlineMenu,
@@ -48,7 +48,7 @@ export const Header = (props: {
   const { toggleColorMode: toggleMode } = useColorMode();
   const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
-
+  //"gray.800"
   const backgroundColor = useColorModeValue(COLOR.foreground3, "gray.800");
   const ref = React.useRef();
   const [y, setY] = React.useState(0);
@@ -65,16 +65,16 @@ export const Header = (props: {
       ml={2}
       leftIcon={
         <Icon
-          as={AiFillShop}
-          w="4"
-          h="4"
-          color={useColorModeValue(COLOR.black, COLOR.white)}
+          as={FaShopify}
+          w="5"
+          h="5"
+          color={useColorModeValue(COLOR.foreground3, "gray.800")}
           mr="2"
         />
       }
       variant="solid"
       onClick={() => props.router.push("/shop")}
-      color={useColorModeValue(COLOR.black, COLOR.white)}
+      color={useColorModeValue(COLOR.foreground3, "gray.800")}
       backgroundColor={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
     >
       Shop
@@ -89,7 +89,7 @@ export const Header = (props: {
       onClick={() => {
         props.router.replace("/");
       }}
-      color={useColorModeValue(COLOR.black, COLOR.white)}
+      color={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
     >
       Home
     </Button>
@@ -166,7 +166,7 @@ export const Header = (props: {
               />
               {ShopButton}
 
-              <IconButton
+              {/* <IconButton
                 display={{ base: "flex", md: "none" }}
                 aria-label="Open menu"
                 fontSize="20px"
@@ -174,15 +174,10 @@ export const Header = (props: {
                 variant="ghost"
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}
-              />
+              />*/}
             </Flex>
           </Flex>
-          {
-            <MobileNav
-              mobileNav={mobileNav}
-              backgroundColor={backgroundColor}
-            />
-          }
+          <MobileNav mobileNav={mobileNav} backgroundColor={backgroundColor} />
         </chakra.div>
       </chakra.header>
       <Box

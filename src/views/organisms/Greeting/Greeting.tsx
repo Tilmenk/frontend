@@ -13,7 +13,7 @@ import { Router } from "next/router";
 export const Greeting = (props: { router: Router }) => {
   return (
     <Box
-      w={{ sm: 300, md: 350, lg: 300, xl: 430 }}
+      w={{ sm: 300, md: 350, lg: 300, xl: 460 }}
       p={4}
       mr={{ base: 0, lg: 0, "2xl": 24 }}
       //backgroundColor={"green"}
@@ -37,12 +37,12 @@ export const Greeting = (props: { router: Router }) => {
         lineHeight="shorter"
         color={useColorModeValue(COLOR.foreground2, COLOR.foreground2_dark)}
       >
-        Come in an buy them all
+        Come in and see Pokemon
       </chakra.h1>
       <chakra.p mb={5} color={COLOR.white} fontSize={{ md: "lg" }}>
-        Every millennial used to collect and trade them via game boy or the
-        trading card game. Today you can relive all those good childhood
-        memories and create teams of Pokemon out of generation one.
+        This frontend is connected to a Spring-Boot backend that manages a set
+        of Pokemon. In our shop you can create teams of these Pokemon and check
+        their stats!
       </chakra.p>
       <HStack>
         {/*<Button
