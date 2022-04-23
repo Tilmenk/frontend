@@ -9,5 +9,9 @@ export const Diglett = (props: { size: number }) => {
     animationData: DiglettAnimation,
   };
   const { View } = useLottie(defaultOptions);
-  return <Box pointerEvents={"none"}>{View}</Box>;
+  return (
+    <Box pointerEvents={"none"} h={props.size} w={props.size}>
+      {View}
+    </Box>
+  );
 };
