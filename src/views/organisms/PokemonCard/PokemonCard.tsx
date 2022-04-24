@@ -29,7 +29,7 @@ export const PokemonCard = (props: {
 }) => {
   const currencyContext = useCurrency();
 
-  const [fetching, setFetching] = useState(true);
+  const [fetching, setFetching] = useState(false);
 
   return (
     // @ts-ignore
