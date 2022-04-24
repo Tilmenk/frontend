@@ -224,8 +224,14 @@ const ShopPage = () => {
             {
               name: "Available Pokémon ",
               component: (
-                <VStack w={1280} my={4}>
-                  <Wrap spacing={4} justify="flex-start" h={813} mb={8}>
+                <VStack my={4}>
+                  <Wrap
+                    spacing={4}
+                    justify="flex-start"
+                    w={1280}
+                    h={813}
+                    mb={8}
+                  >
                     {mockPokemon
                       .slice(pageNumber * 18, pageNumber * 18 + 18)
                       .map((pokemon, index) => (
