@@ -22,12 +22,12 @@ import { useLoginContext } from "../lib/login/LoginProvider";
 
 const ShopPage = () => {
   const loginContext = useLoginContext();
-  console.log(loginContext);
   return (
     <Flex
       m={PADDING.lg}
       mb={16}
-      bg={useColorModeValue(COLOR.foreground2, COLOR.foreground1_dark)}
+      opacity={0.7}
+      bg={useColorModeValue(COLOR.foreground2, "gray.300")}
       height={"90%"}
       borderRadius={25}
       boxShadow={"lg"}

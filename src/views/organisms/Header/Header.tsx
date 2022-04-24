@@ -23,6 +23,7 @@ import {
   AiOutlineInbox,
   AiFillShop,
 } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
 import { BiDollar, BiEuro } from "react-icons/bi";
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import React from "react";
@@ -36,11 +37,14 @@ import {
   CurrencyState,
   useCurrency,
 } from "../../../lib/currency/CurrencyProvider";
+import { useLoginContext } from "../../../lib/login/LoginProvider";
 
 export const Header = (props: {
   router: Router;
   currencyState: CurrencyState;
 }) => {
+  const loginContext = useLoginContext();
+
   const currencyContext = useCurrency();
 
   const mobileNav = useDisclosure();
@@ -78,6 +82,27 @@ export const Header = (props: {
       backgroundColor={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
     >
       Shop
+    </Button>
+  );
+
+  const LogoutButton = (
+    <Button
+      ml={2}
+      leftIcon={
+        <Icon
+          as={FiLogOut}
+          w="5"
+          h="5"
+          color={useColorModeValue(COLOR.foreground3, "gray.800")}
+          mr="2"
+        />
+      }
+      variant="solid"
+      onClick={() => loginContext.setToken(undefined)}
+      color={useColorModeValue(COLOR.foreground3, "gray.800")}
+      backgroundColor={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
+    >
+      Logout
     </Button>
   );
 
@@ -165,6 +190,7 @@ export const Header = (props: {
                 }
               />
               {ShopButton}
+              {loginContext.token != undefined ? LogoutButton : undefined}
 
               {/* <IconButton
                 display={{ base: "flex", md: "none" }}
