@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { chakra, Box, Flex, useColorModeValue } from "@chakra-ui/react";
 import {
   CURRENCY,
@@ -6,6 +6,7 @@ import {
   useCurrency,
 } from "../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
+import { Loading } from "../../atoms/animations/Loading/Loading";
 
 export type Pokemon = {
   name: string;
@@ -18,6 +19,7 @@ export type Pokemon = {
 };
 export const PokemonCard = (props: { pokemon: Pokemon }) => {
   const currencyContext = useCurrency();
+
   return (
     <Flex
       direction="column"
@@ -73,7 +75,8 @@ export const PokemonCard = (props: { pokemon: Pokemon }) => {
             {returnAsciiCurrencySymbol(currencyContext.currencySelected)}
             {props.pokemon.price[currencyContext.currencySelected]}
           </chakra.span>
-          <chakra.button
+
+          {/*  <chakra.button
             height={6}
             bg="gray.800"
             fontSize="xs"
@@ -91,7 +94,7 @@ export const PokemonCard = (props: { pokemon: Pokemon }) => {
             }}
           >
             Add to Team
-          </chakra.button>
+          </chakra.button>*/}
           <PokemonDetailButton />
         </Flex>
       </Box>

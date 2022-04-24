@@ -94,7 +94,7 @@ const ShopPage = () => {
             lineHeight="shorter"
             color={useColorModeValue(COLOR.foreground2, COLOR.background2_dark)}
           >
-            You're not logged in!
+            Please login to see the shop.
           </chakra.h1>
           <Image src={"/images/spongeboss.png"} height={300} w={300} />
           <LoginButton />
