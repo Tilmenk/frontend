@@ -41,7 +41,7 @@ export const Greeting = (props: { router: Router }) => {
       </chakra.h1>
       <chakra.p mb={5} color={COLOR.white} fontSize={{ md: "lg" }}>
         This frontend is connected to a Spring-Boot backend that manages a set
-        of Pokemon. In our shop you can create teams of these Pokemon and check
+        of Pokémon. In our shop you can create teams of these Pokémon and check
         their stats!
       </chakra.p>
       <HStack>

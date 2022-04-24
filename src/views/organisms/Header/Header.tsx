@@ -207,6 +207,7 @@ export const Header = (props: {
         </chakra.div>
       </chakra.header>
       <Box
+        pointerEvents={"none"}
         pos={"absolute"}
         left={{ sm: 5, lg: -10 }}
         style={{ transform: "rotate(180deg)" }}

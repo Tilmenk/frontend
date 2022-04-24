@@ -1,6 +1,9 @@
 [![Technologie](https://img.shields.io/badge/17.0.2-react-blue)](https://es.reactjs.org/)
 [![Technologie](https://img.shields.io/badge/12.0.2-next-yellow)](https://nextjs.org/)
 [![Technologie](https://img.shields.io/badge/1.8.3-chakra--ui%2Freact-brightgreen)](https://chakra-ui.com/)
+[![Technologie](https://img.shields.io/badge/3.4.0-%40choc--ui-yellowgreen)](https://choc-ui.com/)
+[![Technologie](https://img.shields.io/badge/2.2.1-lottie--react-lightgrey)](https://www.npmjs.com/package/lottie-react)
+[![Technologie](https://img.shields.io/badge/4.3.1-react--icons-red)](https://react-icons.github.io/react-icons)
 ## KBE - frontend
 
 ### description
