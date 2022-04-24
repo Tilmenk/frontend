@@ -3,6 +3,7 @@ import {
   Button,
   chakra,
   Container,
+  Divider,
   Flex,
   HStack,
   Image,
@@ -47,10 +48,151 @@ const mockPokemon: Pokemon[] = [
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
   },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur2",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
+  {
+    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Bulbasaur3",
+    imageUrl:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+  },
 ];
+
+console.log(mockPokemon.length);
 
 const ShopPage = () => {
   const loginContext = useLoginContext();
+  const [pageNumber, setPageNumber] = useState(0);
   return (
     <Box
       m={PADDING.lg}
@@ -61,47 +203,53 @@ const ShopPage = () => {
       boxShadow={"lg"}
       justifyContent={"center"}
     >
-      <ShopTabs
-        tabs={[
-          {
-            name: "All Pokemon",
-            component:
-              loginContext.token === undefined ? (
-                <VStack mt={20}>
-                  <chakra.h1
-                    fontFamily={"Outfit"}
-                    mb={3}
-                    fontSize={{ base: "3xl", md: "4xl" }}
-                    fontWeight="bold"
-                    lineHeight="shorter"
-                    color={useColorModeValue(
-                      COLOR.foreground2,
-                      COLOR.background2_dark
-                    )}
-                  >
-                    Please login to see the shop.
-                  </chakra.h1>
-                  <Image src={"/images/spongeboss.png"} height={300} w={300} />
-                  <LoginButton />
+      {loginContext.token === undefined ? (
+        <VStack mt={20}>
+          <chakra.h1
+            fontFamily={"Outfit"}
+            mb={3}
+            fontSize={{ base: "3xl", md: "4xl" }}
+            fontWeight="bold"
+            lineHeight="shorter"
+            color={useColorModeValue(COLOR.foreground2, COLOR.background2_dark)}
+          >
+            Please login to see the shop.
+          </chakra.h1>
+          <Image src={"/images/spongeboss.png"} height={300} w={300} />
+          <LoginButton />
+        </VStack>
+      ) : (
+        <ShopTabs
+          tabs={[
+            {
+              name: "Available Pokémon ",
+              component: (
+                <VStack w={1280} my={4}>
+                  <Wrap spacing={4} justify="flex-start" h={813} mb={8}>
+                    {mockPokemon
+                      .slice(pageNumber * 18, pageNumber * 18 + 18)
+                      .map((pokemon, index) => (
+                        <PokemonCard
+                          key={pokemon.name + index}
+                          pokemon={pokemon}
+                        />
+                      ))}
+                  </Wrap>
+                  <Box shadow={"lg"}>
+                    <ShopPagination
+                      total={mockPokemon.length}
+                      defaultCurrent={1}
+                      onChange={(newPage) => setPageNumber(newPage - 1)}
+                      current={pageNumber + 1}
+                    />
+                  </Box>
                 </VStack>
-              ) : (
-                <Box mx={24} bg={"gray.900"}>
-                  <VStack>
-                    <Box>
-                      <Wrap spacing={6}>
-                        {mockPokemon.map((pokemon) => (
-                          <PokemonCard key={pokemon.name} pokemon={pokemon} />
-                        ))}
-                      </Wrap>
-                    </Box>
-                    <ShopPagination />
-                  </VStack>
-                </Box>
               ),
-          },
-          { name: "All Teams", component: <Box h={5} w={5} bg={"green"} /> },
-        ]}
-      />
+            },
+            { name: "Teams", component: <Box h={5} w={5} bg={"green"} /> },
+          ]}
+        />
+      )}
     </Box>
   );
 };

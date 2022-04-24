@@ -13,8 +13,6 @@ import {
   useCurrency,
 } from "../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
-import { Loading } from "../../atoms/animations/Loading/Loading";
-import { log } from "util";
 
 export type Pokemon = {
   name: string;
@@ -25,30 +23,29 @@ export type Pokemon = {
   };
   imageUrl: string;
 };
-export const PokemonCard = (props: { pokemon: Pokemon }) => {
+export const PokemonCard = (props: {
+  pokemon?: Pokemon;
+  placeholder?: boolean;
+}) => {
   const currencyContext = useCurrency();
 
   const [fetching, setFetching] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => setFetching(false), 1000);
-  });
-
   return (
-    <Skeleton isLoaded={!fetching}>
+    // @ts-ignore
+    <Skeleton isLoaded={!fetching} {...props}>
       <Flex
         direction="column"
         justifyContent="center"
         alignItems="center"
-        w="sm"
         mx="auto"
       >
         <Img
           src={props.pokemon.imageUrl}
           objectFit={"scale-down"}
           bg="gray.300"
-          h={300}
-          w={300}
+          h={200}
+          w={200}
           rounded="lg"
           boxShadow="dark-lg"
           p="6"
@@ -56,7 +53,7 @@ export const PokemonCard = (props: { pokemon: Pokemon }) => {
           onLoad={() => setFetching(false)}
         ></Img>
         <Box
-          w={{ base: 56, md: 56 }}
+          w={{ base: 56, md: 36 }}
           bg={useColorModeValue("white", "gray.800")}
           mt={-5}
           shadow="lg"
