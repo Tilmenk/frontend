@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { chakra, Box, Flex, useColorModeValue } from "@chakra-ui/react";
+import {
+  chakra,
+  Box,
+  Flex,
+  useColorModeValue,
+  Skeleton,
+  Img,
+} from "@chakra-ui/react";
 import {
   CURRENCY,
   returnAsciiCurrencySymbol,
@@ -7,6 +14,7 @@ import {
 } from "../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
 import { Loading } from "../../atoms/animations/Loading/Loading";
+import { log } from "util";
 
 export type Pokemon = {
   name: string;
@@ -20,63 +28,68 @@ export type Pokemon = {
 export const PokemonCard = (props: { pokemon: Pokemon }) => {
   const currencyContext = useCurrency();
 
+  const [fetching, setFetching] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setFetching(false), 1000);
+  });
+
   return (
-    <Flex
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      w="sm"
-      mx="auto"
-    >
-      <Box
-        bg="gray.300"
-        h={64}
-        w="full"
-        rounded="lg"
-        boxShadow="dark-lg"
-        p="6"
-        bgSize="contain"
-        bgRepeat="no-repeat"
-        bgPos="center"
-        style={{
-          backgroundImage: `url(${props.pokemon.imageUrl})`,
-        }}
-      ></Box>
-      <Box
-        w={{ base: 56, md: 64 }}
-        bg={useColorModeValue("white", "gray.800")}
-        mt={-5}
-        shadow="lg"
-        rounded="lg"
-        overflow="hidden"
+    <Skeleton isLoaded={!fetching}>
+      <Flex
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        w="sm"
+        mx="auto"
       >
-        <chakra.h3
-          py={2}
-          textAlign="center"
-          fontWeight="bold"
-          textTransform="uppercase"
-          color={useColorModeValue("gray.800", "white")}
-          letterSpacing={1}
+        <Img
+          src={props.pokemon.imageUrl}
+          objectFit={"scale-down"}
+          bg="gray.300"
+          h={300}
+          w={300}
+          rounded="lg"
+          boxShadow="dark-lg"
+          p="6"
+          bgPos="center"
+          onLoad={() => setFetching(false)}
+        ></Img>
+        <Box
+          w={{ base: 56, md: 56 }}
+          bg={useColorModeValue("white", "gray.800")}
+          mt={-5}
+          shadow="lg"
+          rounded="lg"
+          overflow="hidden"
         >
-          {props.pokemon.name}
-        </chakra.h3>
-
-        <Flex
-          alignItems="center"
-          justifyContent="space-between"
-          py={2}
-          px={3}
-          bg={useColorModeValue("gray.200", "gray.700")}
-        >
-          <chakra.span
+          <chakra.h3
+            py={2}
+            textAlign="center"
             fontWeight="bold"
-            color={useColorModeValue("gray.800", "gray.200")}
+            textTransform="uppercase"
+            color={useColorModeValue("gray.800", "white")}
+            letterSpacing={1}
           >
-            {returnAsciiCurrencySymbol(currencyContext.currencySelected)}
-            {props.pokemon.price[currencyContext.currencySelected]}
-          </chakra.span>
+            {props.pokemon.name}
+          </chakra.h3>
 
-          {/*  <chakra.button
+          <Flex
+            alignItems="center"
+            justifyContent="space-between"
+            py={2}
+            px={3}
+            bg={useColorModeValue("gray.200", "gray.700")}
+          >
+            <chakra.span
+              fontWeight="bold"
+              color={useColorModeValue("gray.800", "gray.200")}
+            >
+              {returnAsciiCurrencySymbol(currencyContext.currencySelected)}
+              {props.pokemon.price[currencyContext.currencySelected]}
+            </chakra.span>
+
+            {/*  <chakra.button
             height={6}
             bg="gray.800"
             fontSize="xs"
@@ -95,9 +108,10 @@ export const PokemonCard = (props: { pokemon: Pokemon }) => {
           >
             Add to Team
           </chakra.button>*/}
-          <PokemonDetailButton />
-        </Flex>
-      </Box>
-    </Flex>
+            <PokemonDetailButton />
+          </Flex>
+        </Box>
+      </Flex>
+    </Skeleton>
   );
 };

@@ -10,7 +10,7 @@ export const Diglett = (props: { size: number }) => {
   };
   const { View } = useLottie(defaultOptions);
   return (
-    <Box pointerEvents={"none"} h={props.size} w={props.size}>
+    <Box pointerEvents={"none"} h={props.size} w={props.size} zIndex={-5}>
       {View}
     </Box>
   );
