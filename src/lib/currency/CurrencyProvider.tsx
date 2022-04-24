@@ -4,13 +4,14 @@ export const CURRENCY = {
   euro: "euro",
   dollar: "dollar",
   bitcoin: "bitcoin",
-};
+} as const;
+export type Currency = keyof typeof CURRENCY;
 const CurrencyContext = createContext(undefined);
 
 export const CurrencyProvider: FC<any> = (props) => {
   //[React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>, T] {
 
-  const [currencySelected, setCurrency] = useState(CURRENCY.euro);
+  const [currencySelected, setCurrency] = useState<Currency>(CURRENCY.euro);
 
   const toggleCurrency = () => {
     if (currencySelected === CURRENCY.euro) {
@@ -29,7 +30,7 @@ export const CurrencyProvider: FC<any> = (props) => {
   );
 };
 export type CurrencyState = {
-  currencySelected: string;
+  currencySelected: Currency;
   toggleCurrency: () => void;
 };
 
@@ -41,3 +42,14 @@ export function useCurrency(): CurrencyState {
 
   return context;
 }
+
+export const returnAsciiCurrencySymbol = (currency: Currency) => {
+  switch (currency) {
+    case "bitcoin":
+      return "₿";
+    case "dollar":
+      return "$";
+    case "euro":
+      return "€";
+  }
+};

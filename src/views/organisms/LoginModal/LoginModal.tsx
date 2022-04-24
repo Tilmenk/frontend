@@ -78,15 +78,6 @@ export const LoginButton = () => {
     <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px) " />
   );
 
-  const OverlayTwo = () => (
-    <ModalOverlay
-      bg="none"
-      backdropFilter="auto"
-      backdropInvert="80%"
-      backdropBlur="2px"
-    />
-  );
-
   const { isOpen, onOpen, onClose } = useDisclosure({
     onClose() {
       setRegistrating(registrating_default);
@@ -105,6 +96,7 @@ export const LoginButton = () => {
   return (
     <>
       <Button
+        colorScheme={"teal"}
         onClick={() => {
           setOverlay(<OverlayOne />);
           onOpen();

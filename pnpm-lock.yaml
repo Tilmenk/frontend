@@ -4,6 +4,7 @@ specifiers:
   '@artsy/fresnel': ^3.2.2
   '@babel/core': ^7.17.2
   '@chakra-ui/color-mode': ^1.4.3
+  '@chakra-ui/icons': ^1.1.7
   '@chakra-ui/react': ^1.8.3
   '@chakra-ui/system': ^1.10.3
   '@chakra-ui/theme-tools': ^1.3.4
@@ -30,6 +31,7 @@ dependencies:
   '@artsy/fresnel': 3.2.2_react@17.0.2
   '@babel/core': 7.17.2
   '@chakra-ui/color-mode': 1.4.3_react@17.0.2
+  '@chakra-ui/icons': 1.1.7_2xpgn7bbibm7mrifby3nazwabi
   '@chakra-ui/react': 1.8.3_3mgv3qmbvcvnyreg7rhl7w52im
   '@chakra-ui/system': 1.10.3_sivilwsx4nsguv2gln4xbmg6qu
   '@chakra-ui/theme-tools': 1.3.4_@chakra-ui+system@1.10.3
@@ -1552,6 +1554,29 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@chakra-ui/icon/2.0.5_2xpgn7bbibm7mrifby3nazwabi:
+    resolution: {integrity: sha512-ZrqRvCCIxGr4qFd/r1pmtd9tobRmv8KAxV7ygFoc/t4vOSKTcVIjhE12gsI3FzgvXM15ZFVwsxa1zodwgo5neQ==}
+    peerDependencies:
+      '@chakra-ui/system': '>=1.0.0'
+      react: '>=16.8.6'
+    dependencies:
+      '@chakra-ui/system': 1.10.3_sivilwsx4nsguv2gln4xbmg6qu
+      '@chakra-ui/utils': 1.10.4
+      react: 17.0.2
+    dev: false
+
+  /@chakra-ui/icons/1.1.7_2xpgn7bbibm7mrifby3nazwabi:
+    resolution: {integrity: sha512-YIHxey/B4M2PyFASlHXtAWFyW+tsAtGAChOJ8dsM2kpu1MbVUqm/6nMI1KIFd7Te5IWuNYA75rAHBdLI0Yu61A==}
+    peerDependencies:
+      '@chakra-ui/system': '>=1.0.0'
+      react: '>=16.8.6'
+    dependencies:
+      '@chakra-ui/icon': 2.0.5_2xpgn7bbibm7mrifby3nazwabi
+      '@chakra-ui/system': 1.10.3_sivilwsx4nsguv2gln4xbmg6qu
+      '@types/react': 17.0.39
+      react: 17.0.2
+    dev: false
+
   /@chakra-ui/image/1.1.5_2xpgn7bbibm7mrifby3nazwabi:
     resolution: {integrity: sha512-xzCS7OFZeHUYkYz67J5nuIfVjCF0KyZ6lj1PuWZbQIzH2ZKkDq7eTYpWkAkCRyZ4Z6Cz+s/WtBL53FqCYQ6nwg==}
     peerDependencies:
@@ -2088,6 +2113,15 @@ packages:
 
   /@chakra-ui/utils/1.10.2:
     resolution: {integrity: sha512-V4nGBkebZpz6P7AgbZBiXi2Pn3RNSuzR1A6VsQCzAvxYU2+csqZGLqmC07pvCSACNB75sT1en+Xd3XT0QKr0sA==}
+    dependencies:
+      '@types/lodash.mergewith': 4.6.6
+      css-box-model: 1.2.1
+      framesync: 5.3.0
+      lodash.mergewith: 4.6.2
+    dev: false
+
+  /@chakra-ui/utils/1.10.4:
+    resolution: {integrity: sha512-AM91VQQxw8F4F1WDA28mqKY6NFIOuzc2Ekkna88imy2OiqqmYH0xkq8J16L2qj4cLiLozpYqba3C79pWioy6FA==}
     dependencies:
       '@types/lodash.mergewith': 4.6.6
       css-box-model: 1.2.1
