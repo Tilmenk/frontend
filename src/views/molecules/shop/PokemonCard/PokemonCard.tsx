@@ -6,6 +6,7 @@ import {
   useColorModeValue,
   Skeleton,
   Img,
+  Button,
 } from "@chakra-ui/react";
 import {
   CURRENCY,
@@ -97,7 +98,30 @@ export const PokemonCard = (props: {
           >
             Add to Team
           </chakra.button>*/}
-            <PokemonDetailButton pokemon={props.pokemon} />
+            <PokemonDetailButton
+              pokemon={props.pokemon}
+              button={
+                <Button
+                  height={6}
+                  bg="gray.800"
+                  fontSize="xs"
+                  fontWeight="bold"
+                  color="white"
+                  px={2}
+                  rounded="lg"
+                  textTransform="uppercase"
+                  _hover={{
+                    bg: useColorModeValue("gray.700", "gray.600"),
+                  }}
+                  _focus={{
+                    bg: useColorModeValue("gray.700", "gray.600"),
+                    outline: "none",
+                  }}
+                >
+                  Details
+                </Button>
+              }
+            />
           </Flex>
         </Box>
       </Flex>

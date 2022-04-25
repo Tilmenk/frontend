@@ -16,12 +16,12 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
-import { Pokemon } from "./PokemonCard";
 import {
   returnAsciiCurrencySymbol,
   useCurrency,
 } from "../../../../lib/currency/CurrencyProvider";
 import { capitalizeFirstLetter } from "../../../../lib/msc/StringMethods";
+import { Pokemon } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
 
 const PokemonTypeToColor = {
   normal: "gray",
@@ -44,7 +44,10 @@ const PokemonTypeToColor = {
   fairy: "pink",
 } as const;
 
-export const PokemonDetailButton = (props: { pokemon: Pokemon }) => {
+export const PokemonDetailButton = (props: {
+  pokemon: Pokemon;
+  button: JSX.Element;
+}) => {
   const currencyContext = useCurrency();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -55,29 +58,13 @@ export const PokemonDetailButton = (props: { pokemon: Pokemon }) => {
 
   return (
     <>
-      <Button
-        height={6}
-        bg="gray.800"
-        fontSize="xs"
-        fontWeight="bold"
-        color="white"
-        px={2}
-        rounded="lg"
-        textTransform="uppercase"
-        onClick={() => {
+      {React.cloneElement(props.button, {
+        onClick: () => {
           setOverlay(<OverlayOne />);
           onOpen();
-        }}
-        _hover={{
-          bg: useColorModeValue("gray.700", "gray.600"),
-        }}
-        _focus={{
-          bg: useColorModeValue("gray.700", "gray.600"),
-          outline: "none",
-        }}
-      >
-        Details
-      </Button>
+        },
+      })}
+
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
         <ModalContent>

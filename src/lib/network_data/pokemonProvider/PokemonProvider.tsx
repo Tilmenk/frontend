@@ -132,8 +132,18 @@ export const PokemonProvider: FC<any> = (props) => {
   const [pokemonAvailable, setPokemonAvailable] =
     useState<Pokemon[]>(mockPokemon);
 
+  function getPokemonByName(name: string): Pokemon {
+    let pokemon: Pokemon | undefined = undefined;
+    pokemon = pokemonAvailable.find((pokemon) => pokemon.name === name);
+    if (!pokemon) console.log("Pokemon named '" + name + "' not found!");
+
+    return pokemon;
+  }
+
   return (
-    <LoginContext.Provider value={{ pokemonAvailable, setPokemonAvailable }}>
+    <LoginContext.Provider
+      value={{ pokemonAvailable, setPokemonAvailable, getPokemonByName }}
+    >
       {props.children}
     </LoginContext.Provider>
   );
@@ -141,6 +151,7 @@ export const PokemonProvider: FC<any> = (props) => {
 export type PokemonState = {
   pokemonAvailable: Pokemon[];
   setPokemonAvailable: (fetchedPokemon: Pokemon[]) => void;
+  getPokemonByName(name: string): Pokemon;
 };
 
 export function usePokemonContext(): PokemonState {

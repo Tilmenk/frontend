@@ -20,6 +20,8 @@ import {
   PokemonTeamCustom,
   useTeamContext,
 } from "../../../../lib/network_data/teamProvider/TeamProvider";
+import { usePokemonContext } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
+import { PokemonDetailButton } from "../PokemonCard/PokemonDetailButton";
 
 export const TEAMTABLEVARIANTS = {
   custom: "custom",
@@ -37,6 +39,11 @@ export const TeamTable = (props: {
   variant: TeamTableVariant;
 }) => {
   const { bg, bg2, bg3 } = props.bgColors;
+
+  const pokemonContext = usePokemonContext();
+
+  console.log(pokemonContext.getPokemonByName("pikachu"));
+
   return (
     <Stack
       direction={{ base: "column" }}
@@ -85,25 +92,32 @@ export const TeamTable = (props: {
               </chakra.span>
               <Flex>
                 <HStack>
-                  {[...Array(6)].map((_, index) => (
-                    <IconButton
-                      key={index}
-                      icon={
-                        <Image
-                          src={
-                            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-                          }
-                          w={50}
-                          h={50}
-                        />
-                      }
-                      size={"sm"}
-                      variant="outline"
-                      alignItems={"center"}
-                      justifyContent={"center"}
-                      aria-label={"pokemon"}
-                    />
-                  ))}
+                  {team.pokemon.map((pokemonName, index) => {
+                    const pokemon =
+                      pokemonContext.getPokemonByName(pokemonName);
+                    return (
+                      <PokemonDetailButton
+                        pokemon={pokemon}
+                        button={
+                          <IconButton
+                            key={index}
+                            icon={
+                              <Image
+                                src={pokemon.sprites.small}
+                                w={50}
+                                h={50}
+                              />
+                            }
+                            size={"sm"}
+                            variant="outline"
+                            alignItems={"center"}
+                            justifyContent={"center"}
+                            aria-label={"pokemon"}
+                          />
+                        }
+                      />
+                    );
+                  })}
                 </HStack>
               </Flex>
               <Flex justify={{ md: "end" }}>
