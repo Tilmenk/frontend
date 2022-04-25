@@ -14,6 +14,28 @@ import {
 } from "../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
 
+export const POKEMONTYPE = {
+  normal: "normal",
+  fire: "fire",
+  water: "water",
+  electric: "electric",
+  grass: "grass",
+  ice: "ice",
+  fighting: "fighting",
+  poison: "poison",
+  ground: "ground",
+  flying: "flying",
+  psychic: "psychic",
+  bug: "bug",
+  rock: "rock",
+  ghost: "psychic",
+  dragon: "dragon",
+  dark: "dark",
+  steel: "steel",
+  fairy: "fairy",
+} as const;
+export type PokemonType = keyof typeof POKEMONTYPE;
+
 export type Pokemon = {
   //properties from microservices
   imageUrl: string;
@@ -24,8 +46,8 @@ export type Pokemon = {
   };
   //properties from warehouse
   name: string;
-  type1: string;
-  type2: string;
+  type1: PokemonType;
+  type2?: PokemonType;
   health: number;
   attack: number;
   attack_sp: number;

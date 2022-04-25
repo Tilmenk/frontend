@@ -1,24 +1,13 @@
 import {
   Box,
-  Button,
   chakra,
-  Container,
-  Divider,
-  Flex,
-  HStack,
   Image,
-  List,
-  Skeleton,
   useColorModeValue,
   VStack,
   Wrap,
 } from "@chakra-ui/react";
 import { COLOR } from "../theme/Color";
-import { TYPO } from "../theme/Typo";
-import { Blob } from "../views/atoms/animations/Blob/Blob";
 import { PADDING } from "../theme/LayoutSizes";
-import { ChooseResponsive } from "../lib/responsive/ChooseResponsive";
-import { BREAKPOINTNAME } from "../theme/Breakpoints";
 import { LoginButton } from "../views/organisms/LoginModal/LoginModal";
 import React, { useEffect, useState } from "react";
 import { useLoginContext } from "../lib/login/LoginProvider";
@@ -32,11 +21,11 @@ import { ShopTabs } from "../views/organisms/ShopTabs/ShopTabs";
 const mockPokemon: Pokemon[] = [
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Pikachu",
+    name: "pikachu",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-    type1: "Electro",
-    type2: "Ground",
+    type1: "electric",
+    type2: "ground",
     health: 65,
     attack: 45,
     attack_sp: 60,
@@ -48,11 +37,11 @@ const mockPokemon: Pokemon[] = [
 
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Squirtle",
+    name: "squirtle",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
-    type1: "Electro",
-    type2: "Ground",
+    type1: "water",
+    type2: undefined,
     health: 65,
     attack: 45,
     attack_sp: 60,
@@ -63,11 +52,11 @@ const mockPokemon: Pokemon[] = [
   },
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur",
+    name: "bulbasaur",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    type1: "Electro",
-    type2: "Ground",
+    type1: "grass",
+    type2: "poison",
     health: 65,
     attack: 45,
     attack_sp: 60,
@@ -76,43 +65,14 @@ const mockPokemon: Pokemon[] = [
     speed: 70,
     legendary: false,
   },
+
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur2",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    type1: "Electro",
-    type2: "Ground",
-    health: 65,
-    attack: 45,
-    attack_sp: 60,
-    defense: 50,
-    defense_sp: 40,
-    speed: 70,
-    legendary: false,
-  },
-  {
-    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    type1: "Electro",
-    type2: "Ground",
-    health: 65,
-    attack: 45,
-    attack_sp: 60,
-    defense: 50,
-    defense_sp: 40,
-    speed: 70,
-    legendary: false,
-  },
-  {
-    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Moltres",
+    name: "moltres",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/146.svg",
-    type1: "Fire",
-    type2: "Flying",
+    type1: "fire",
+    type2: "flying",
     health: 65,
     attack: 45,
     attack_sp: 60,
@@ -129,6 +89,7 @@ const ShopPage = () => {
   return (
     <Box
       m={PADDING.lg}
+      w={1800}
       py={12}
       bg={useColorModeValue(COLOR.foreground2, "gray.300")}
       height={1200}
