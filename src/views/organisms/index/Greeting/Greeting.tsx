@@ -5,7 +5,7 @@ import {
   HStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { COLOR } from "../../../theme/Color";
+import { COLOR } from "../../../../theme/Color";
 
 import React from "react";
 import { Router } from "next/router";

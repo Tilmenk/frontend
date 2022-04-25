@@ -36,7 +36,7 @@ import {
   CURRENCY,
   CurrencyProvider,
   CurrencyState,
-  useCurrency,
+  useCurrencyContext,
 } from "../../../lib/currency/CurrencyProvider";
 import { useLoginContext } from "../../../lib/login/LoginProvider";
 
@@ -46,7 +46,7 @@ export const Header = (props: {
 }) => {
   const loginContext = useLoginContext();
 
-  const currencyContext = useCurrency();
+  const currencyContext = useCurrencyContext();
 
   const mobileNav = useDisclosure();
 

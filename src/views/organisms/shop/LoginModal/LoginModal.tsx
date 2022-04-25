@@ -22,8 +22,8 @@ import {
   chakra,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useLoginContext } from "../../../lib/login/LoginProvider";
-import { Loading } from "../../atoms/animations/Loading/Loading";
+import { useLoginContext } from "../../../../lib/login/LoginProvider";
+import { Loading } from "../../../atoms/animations/Loading/Loading";
 
 export const LoginButton = () => {
   const loginContext = useLoginContext();

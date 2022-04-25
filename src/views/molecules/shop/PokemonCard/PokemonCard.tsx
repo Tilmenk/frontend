@@ -6,62 +6,22 @@ import {
   useColorModeValue,
   Skeleton,
   Img,
+  Button,
 } from "@chakra-ui/react";
 import {
   CURRENCY,
+  getCostsFormatted,
   returnAsciiCurrencySymbol,
-  useCurrency,
-} from "../../../lib/currency/CurrencyProvider";
+  useCurrencyContext,
+} from "../../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
-
-export const POKEMONTYPE = {
-  normal: "normal",
-  fire: "fire",
-  water: "water",
-  electric: "electric",
-  grass: "grass",
-  ice: "ice",
-  fighting: "fighting",
-  poison: "poison",
-  ground: "ground",
-  flying: "flying",
-  psychic: "psychic",
-  bug: "bug",
-  rock: "rock",
-  ghost: "psychic",
-  dragon: "dragon",
-  dark: "dark",
-  steel: "steel",
-  fairy: "fairy",
-} as const;
-export type PokemonType = keyof typeof POKEMONTYPE;
-
-export type Pokemon = {
-  //properties from microservices
-  imageUrl: string;
-  costs: {
-    [CURRENCY.dollar]: number;
-    [CURRENCY.euro]: number;
-    [CURRENCY.bitcoin]: number;
-  };
-  //properties from warehouse
-  name: string;
-  type1: PokemonType;
-  type2?: PokemonType;
-  health: number;
-  attack: number;
-  attack_sp: number;
-  defense: number;
-  defense_sp: number;
-  speed: number;
-  legendary: boolean;
-};
+import { Pokemon } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
 
 export const PokemonCard = (props: {
   pokemon?: Pokemon;
   placeholder?: boolean;
 }) => {
-  const currencyContext = useCurrency();
+  const currencyContext = useCurrencyContext();
 
   const [fetching, setFetching] = useState(false);
 
@@ -75,7 +35,7 @@ export const PokemonCard = (props: {
         mx="auto"
       >
         <Img
-          src={props.pokemon.imageUrl}
+          src={props.pokemon.sprites.large}
           objectFit={"scale-down"}
           bg={props.pokemon.legendary ? "#FFD60A" : "gray.300"}
           h={200}
@@ -87,7 +47,7 @@ export const PokemonCard = (props: {
           onLoad={() => setFetching(false)}
         ></Img>
         <Box
-          w={{ base: 56, md: 36 }}
+          w={{ base: 59, md: 40 }}
           bg={useColorModeValue("white", "gray.800")}
           mt={-5}
           shadow="lg"
@@ -116,8 +76,10 @@ export const PokemonCard = (props: {
               fontWeight="bold"
               color={useColorModeValue("gray.800", "gray.200")}
             >
-              {returnAsciiCurrencySymbol(currencyContext.currencySelected)}
-              {props.pokemon.costs[currencyContext.currencySelected]}
+              {getCostsFormatted(
+                currencyContext.currencySelected,
+                props.pokemon.costs[currencyContext.currencySelected]
+              )}
             </chakra.span>
 
             {/*  <chakra.button
@@ -139,7 +101,30 @@ export const PokemonCard = (props: {
           >
             Add to Team
           </chakra.button>*/}
-            <PokemonDetailButton pokemon={props.pokemon} />
+            <PokemonDetailButton
+              pokemon={props.pokemon}
+              button={
+                <Button
+                  height={6}
+                  bg="gray.800"
+                  fontSize="xs"
+                  fontWeight="bold"
+                  color="white"
+                  px={2}
+                  rounded="lg"
+                  textTransform="uppercase"
+                  _hover={{
+                    bg: useColorModeValue("gray.700", "gray.600"),
+                  }}
+                  _focus={{
+                    bg: useColorModeValue("gray.700", "gray.600"),
+                    outline: "none",
+                  }}
+                >
+                  Details
+                </Button>
+              }
+            />
           </Flex>
         </Box>
       </Flex>
