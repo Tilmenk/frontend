@@ -16,7 +16,6 @@ export const PokemonView = () => {
         w={{ lg: 1160, xl: 1280 }}
         h={813}
         mb={8}
-        bg={"green"}
       >
         {pokemonContext.pokemonAvailable
           .slice(pageNumber * 18, pageNumber * 18 + 18)

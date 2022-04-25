@@ -150,18 +150,13 @@ export const TeamTable = (props: {
 
               <Flex justify={{ md: "end" }}>
                 <ButtonGroup variant="solid" size="sm" spacing={3}>
-                  <IconButton
-                    colorScheme="blue"
-                    icon={<BsBoxArrowUpRight />}
-                    aria-label={"test"}
-                  />
                   {props.variant === TEAMTABLEVARIANTS.custom ? (
                     <>
-                      <IconButton
+                      {/* <IconButton
                         colorScheme="green"
                         icon={<AiFillEdit />}
                         aria-label={"test"}
-                      />
+                      />*/}
                       <IconButton
                         colorScheme="red"
                         variant="outline"
@@ -170,6 +165,11 @@ export const TeamTable = (props: {
                       />
                     </>
                   ) : undefined}
+                  <IconButton
+                    colorScheme="blue"
+                    icon={<BsBoxArrowUpRight />}
+                    aria-label={"test"}
+                  />
                 </ButtonGroup>
               </Flex>
             </SimpleGrid>
