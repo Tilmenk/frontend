@@ -14,7 +14,6 @@ import { LoginButton } from "../views/organisms/shop/LoginModal/LoginModal";
 import React, { useEffect, useState } from "react";
 import { useLoginContext } from "../lib/login/LoginProvider";
 import { ShopTabs } from "../views/organisms/shop/ShopTabs/ShopTabs";
-import { ChooseResponsive } from "../lib/responsive/ChooseResponsive";
 import { BREAKPOINT, BREAKPOINTNAME } from "../theme/Breakpoints";
 import {
   PokemonProvider,
@@ -23,12 +22,17 @@ import {
 import { PokemonView } from "../views/organisms/shop/PokemonView/PokemonView";
 import { TeamProvider } from "../lib/network_data/teamProvider/TeamProvider";
 import { TeamView } from "../views/organisms/shop/TeamView/TeamView";
+import { Media } from "../lib/responsive/Media";
 
 const ShopPage = () => {
   const loginContext = useLoginContext();
 
   const supportedScreenSizeComponent = (
-    <Flex justifyContent={"center"}>
+    <Flex
+      justifyContent={"center"}
+      display={{ base: "none", lg: "flex" }}
+      pointer-events={{ base: undefined, lg: "none" }}
+    >
       <Box
         m={PADDING.lg}
         w={{ lg: 1440 - 12 * 2, xl: 1780 }}
@@ -84,13 +88,10 @@ const ShopPage = () => {
   return (
     <PokemonProvider>
       <TeamProvider>
-        <ChooseResponsive
-          defaultComponent={unsupportedScreenSizeComponent}
-          breakpointComponents={{
-            [BREAKPOINTNAME.lg]: supportedScreenSizeComponent,
-            [BREAKPOINTNAME.xl]: supportedScreenSizeComponent,
-          }}
-        />
+        {supportedScreenSizeComponent}
+        <Media lessThan={BREAKPOINTNAME.lg}>
+          {unsupportedScreenSizeComponent}
+        </Media>
       </TeamProvider>
     </PokemonProvider>
   );
