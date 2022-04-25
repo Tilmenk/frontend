@@ -14,6 +14,7 @@ import {
   VStack,
   Button,
   Image,
+  Badge,
 } from "@chakra-ui/react";
 import { FaMoon, FaSun, FaHeart, FaBitcoin, FaShopify } from "react-icons/fa";
 import {
@@ -195,7 +196,12 @@ export const Header = (props: {
 
               {loginContext.token != undefined ? LogoutButton : undefined}
               {loginContext.token != undefined ? (
-                <chakra.p ml={2}>logged in as '{loginContext.name}'</chakra.p>
+                <HStack alignItems={"baseline"}>
+                  <chakra.p ml={2}>logged in as</chakra.p>
+                  <Badge fontSize={"md"} ml={0}>
+                    {loginContext.name}
+                  </Badge>
+                </HStack>
               ) : undefined}
 
               {/* <IconButton
