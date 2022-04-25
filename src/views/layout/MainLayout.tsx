@@ -1,21 +1,21 @@
 import { Box, Container, useColorModeValue } from "@chakra-ui/react";
 import { FC } from "react";
 import Head from "next/head";
-import BackgroundDesktop_lg from "../../../../public/backgrounds/desktop/background_lg.svg";
-import BackgroundDesktop_lg_dark from "../../../../public/backgrounds/desktop/background_lg_dark.svg";
-import BackgroundDesktop_md from "../../../../public/backgrounds/desktop/background_md.svg";
-import BackgroundDesktop_md_dark from "../../../../public/backgrounds/desktop/background_md_dark.svg";
-import BackgroundMobile from "../../../../public/backgrounds/mobile/background.svg";
-import BackgroundMobile_dark from "../../../../public/backgrounds/mobile/background_dark.svg";
+import BackgroundDesktop_lg from "../../../public/backgrounds/desktop/background_lg.svg";
+import BackgroundDesktop_lg_dark from "../../../public/backgrounds/desktop/background_lg_dark.svg";
+import BackgroundDesktop_md from "../../../public/backgrounds/desktop/background_md.svg";
+import BackgroundDesktop_md_dark from "../../../public/backgrounds/desktop/background_md_dark.svg";
+import BackgroundMobile from "../../../public/backgrounds/mobile/background.svg";
+import BackgroundMobile_dark from "../../../public/backgrounds/mobile/background_dark.svg";
 import { AppProps } from "next/app";
-import { BREAKPOINTNAME } from "../../../theme/Breakpoints";
-import { ChooseResponsive } from "../../../lib/responsive/ChooseResponsive";
-import { Header } from "../../organisms/Header/Header";
-import { COLOR } from "../../../theme/Color";
+import { BREAKPOINTNAME } from "../../theme/Breakpoints";
+import { ChooseResponsive } from "../../lib/responsive/ChooseResponsive";
+import { Header } from "../organisms/Header/Header";
+import { COLOR } from "../../theme/Color";
 import {
   CurrencyProvider,
   CurrencyState,
-} from "../../../lib/currency/CurrencyProvider";
+} from "../../lib/currency/CurrencyProvider";
 
 export type LayoutProps = {
   router: AppProps["router"];

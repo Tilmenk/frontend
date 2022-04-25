@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   chakra,
   Image,
   useColorModeValue,
@@ -17,6 +18,8 @@ import {
 } from "../views/organisms/PokemonCard/PokemonCard";
 import { ShopPagination } from "../views/organisms/ShopPagination/ShopPagination";
 import { ShopTabs } from "../views/organisms/ShopTabs/ShopTabs";
+import { ChooseResponsive } from "../lib/responsive/ChooseResponsive";
+import { BREAKPOINT, BREAKPOINTNAME } from "../theme/Breakpoints";
 
 const mockPokemon: Pokemon[] = [
   {
@@ -86,71 +89,82 @@ const mockPokemon: Pokemon[] = [
 const ShopPage = () => {
   const loginContext = useLoginContext();
   const [pageNumber, setPageNumber] = useState(0);
-  return (
-    <Box
-      m={PADDING.lg}
-      w={1800}
-      py={12}
-      bg={useColorModeValue(COLOR.foreground2, "gray.300")}
-      height={1200}
-      borderRadius={25}
-      boxShadow={"lg"}
-      justifyContent={"center"}
-    >
-      {loginContext.token === undefined ? (
-        <VStack mt={20}>
-          <chakra.h1
-            fontFamily={"Outfit"}
-            mb={3}
-            fontSize={{ base: "3xl", md: "4xl" }}
-            fontWeight="bold"
-            lineHeight="shorter"
-            color={useColorModeValue(COLOR.foreground2, COLOR.background2_dark)}
-          >
-            Please login to see the shop.
-          </chakra.h1>
-          <Image src={"/images/spongeboss.png"} height={300} w={300} />
-          <LoginButton />
-        </VStack>
-      ) : (
-        <ShopTabs
-          tabs={[
-            {
-              name: "Available Pokémon ",
-              component: (
-                <VStack my={4}>
-                  <Wrap
-                    spacing={4}
-                    justify="flex-start"
-                    w={1280}
-                    h={813}
-                    mb={8}
-                  >
-                    {mockPokemon
-                      .slice(pageNumber * 18, pageNumber * 18 + 18)
-                      .map((pokemon, index) => (
-                        <PokemonCard
-                          key={pokemon.name + index}
-                          pokemon={pokemon}
-                        />
-                      ))}
-                  </Wrap>
-                  <Box shadow={"lg"}>
-                    <ShopPagination
-                      total={mockPokemon.length}
-                      defaultCurrent={1}
-                      onChange={(newPage) => setPageNumber(newPage - 1)}
-                      current={pageNumber + 1}
-                    />
-                  </Box>
-                </VStack>
-              ),
-            },
-            { name: "Teams", component: <Box h={5} w={5} bg={"green"} /> },
-          ]}
+
+  const PokemonView = (
+    <VStack my={4}>
+      <Wrap spacing={4} justify="flex-start" w={1280} h={813} mb={8}>
+        {mockPokemon
+          .slice(pageNumber * 18, pageNumber * 18 + 18)
+          .map((pokemon, index) => (
+            <PokemonCard key={pokemon.name + index} pokemon={pokemon} />
+          ))}
+      </Wrap>
+      <Box shadow={"lg"}>
+        <ShopPagination
+          total={mockPokemon.length}
+          defaultCurrent={1}
+          onChange={(newPage) => setPageNumber(newPage - 1)}
+          current={pageNumber + 1}
         />
-      )}
-    </Box>
+      </Box>
+    </VStack>
+  );
+
+  return (
+    <ChooseResponsive
+      defaultComponent={
+        <Center mt={40}>
+          <chakra.p fontSize={"xl"}>screen width not supported.</chakra.p>
+        </Center>
+      }
+      breakpointComponents={{
+        [BREAKPOINTNAME.xl]: (
+          <Box
+            m={PADDING.lg}
+            w={1800}
+            py={12}
+            bg={useColorModeValue(COLOR.foreground2, "gray.300")}
+            height={1200}
+            borderRadius={25}
+            boxShadow={"lg"}
+            justifyContent={"center"}
+          >
+            {loginContext.token === undefined ? (
+              <VStack mt={20}>
+                <chakra.h1
+                  fontFamily={"Outfit"}
+                  mb={3}
+                  fontSize={{ base: "3xl", md: "4xl" }}
+                  fontWeight="bold"
+                  lineHeight="shorter"
+                  color={useColorModeValue(
+                    COLOR.foreground2,
+                    COLOR.background2_dark
+                  )}
+                >
+                  Please login to see the shop.
+                </chakra.h1>
+                <Image src={"/images/spongeboss.png"} height={300} w={300} />
+                <LoginButton />
+              </VStack>
+            ) : (
+              <ShopTabs
+                tabs={[
+                  {
+                    name: "Available Pokémon ",
+                    component: PokemonView,
+                  },
+                  {
+                    name: "Teams",
+                    component: <Box h={5} w={5} bg={"green"} />,
+                  },
+                ]}
+              />
+            )}
+          </Box>
+        ),
+      }}
+    />
   );
 };
 
