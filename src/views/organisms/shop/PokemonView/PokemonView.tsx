@@ -10,7 +10,13 @@ export const PokemonView = () => {
 
   return (
     <VStack my={4}>
-      <Wrap spacing={4} justify="flex-start" w={1280} h={813} mb={8}>
+      <Wrap
+        spacing={4}
+        justify="flex-start"
+        w={{ lg: 980, xl: 1280 }}
+        h={813}
+        mb={8}
+      >
         {pokemonContext.pokemonAvailable
           .slice(pageNumber * 18, pageNumber * 18 + 18)
           .map((pokemon, index) => (

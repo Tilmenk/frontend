@@ -1,6 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import { ColorModeScript } from "@chakra-ui/color-mode";
-import { theme } from "../theme/Color";
 
 export default function Document() {
   const test = <ColorModeScript initialColorMode={"dark"} />;

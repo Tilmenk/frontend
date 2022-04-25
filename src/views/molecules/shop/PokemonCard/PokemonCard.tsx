@@ -16,6 +16,7 @@ import {
 } from "../../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
 import { Pokemon } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
+import { BREAKPOINT } from "../../../../theme/Breakpoints";
 
 export const PokemonCard = (props: {
   pokemon?: Pokemon;
@@ -38,8 +39,8 @@ export const PokemonCard = (props: {
           src={props.pokemon.sprites.large}
           objectFit={"scale-down"}
           bg={props.pokemon.legendary ? "#FFD60A" : "gray.300"}
-          h={200}
-          w={200}
+          h={{ lg: 150, xl: 200 }}
+          w={{ lg: 150, xl: 200 }}
           rounded="lg"
           boxShadow="dark-lg"
           p="6"
@@ -47,7 +48,7 @@ export const PokemonCard = (props: {
           onLoad={() => setFetching(false)}
         ></Img>
         <Box
-          w={{ base: 59, md: 40 }}
+          w={{ xxl: 59 }}
           bg={useColorModeValue("white", "gray.800")}
           mt={-5}
           shadow="lg"

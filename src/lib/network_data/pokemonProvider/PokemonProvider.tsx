@@ -163,6 +163,120 @@ const mockPokemon: Pokemon[] = [
     speed: 70,
     legendary: true,
   },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },
 ];
 
 export const PokemonProvider: FC<any> = (props) => {

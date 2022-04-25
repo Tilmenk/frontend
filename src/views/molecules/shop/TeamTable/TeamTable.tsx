@@ -76,7 +76,9 @@ export const TeamTable = (props: {
           <span>Name</span>
           <span>Creator</span>
           <span>Members</span>
-          <chakra.span textAlign={{ md: "center" }}>Costs</chakra.span>
+          <chakra.span textAlign={{ lg: "right", xl: "center" }}>
+            Costs
+          </chakra.span>
           <chakra.span textAlign={{ md: "right" }}>Actions</chakra.span>
         </SimpleGrid>
         {props.teams.map((team) => {
@@ -109,15 +111,15 @@ export const TeamTable = (props: {
                         button={
                           <Tooltip label={capitalizeFirstLetter(pokemon.name)}>
                             <IconButton
-                              key={index}
+                              key={pokemonName}
                               icon={
                                 <Image
                                   src={pokemon.sprites.small}
-                                  w={50}
-                                  h={50}
+                                  boxSize={55}
+                                  objectFit="cover"
                                 />
                               }
-                              size={"sm"}
+                              size={"md"}
                               variant="outline"
                               alignItems={"center"}
                               justifyContent={"center"}
@@ -130,7 +132,7 @@ export const TeamTable = (props: {
                   })}
                 </HStack>
               </Flex>
-              <Flex justify={{ md: "center" }}>
+              <chakra.span textAlign={{ md: "right", xl: "center" }}>
                 {getCostsFormatted(
                   currencyContext.currencySelected,
                   team.pokemon
@@ -142,7 +144,7 @@ export const TeamTable = (props: {
                     )
                     .reduce((prev, current) => prev + current)
                 )}
-              </Flex>
+              </chakra.span>
 
               <Flex justify={{ md: "end" }}>
                 <ButtonGroup variant="solid" size="sm" spacing={3}>

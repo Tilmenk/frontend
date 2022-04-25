@@ -2,6 +2,7 @@ import {
   Box,
   Center,
   chakra,
+  Flex,
   Image,
   useColorModeValue,
   VStack,
@@ -26,66 +27,68 @@ import { TeamView } from "../views/organisms/shop/TeamView/TeamView";
 const ShopPage = () => {
   const loginContext = useLoginContext();
 
+  const supportedScreenSizeComponent = (
+    <Flex justifyContent={"center"}>
+      <Box
+        m={PADDING.lg}
+        w={{ lg: 1440 - 12 * 2, xl: 1780 }}
+        py={12}
+        bg={useColorModeValue(COLOR.foreground2, "gray.300")}
+        height={1200}
+        borderRadius={25}
+        boxShadow={"lg"}
+        justifyContent={"center"}
+      >
+        {loginContext.token === undefined ? (
+          <VStack mt={20}>
+            <chakra.h1
+              fontFamily={"Outfit"}
+              mb={3}
+              fontSize={{ base: "3xl", md: "4xl" }}
+              fontWeight="bold"
+              lineHeight="shorter"
+              color={useColorModeValue(
+                COLOR.foreground2,
+                COLOR.background2_dark
+              )}
+            >
+              Please login to see the shop.
+            </chakra.h1>
+            <Image src={"/images/spongeboss.png"} height={300} w={300} />
+            <LoginButton />
+          </VStack>
+        ) : (
+          <ShopTabs
+            tabs={[
+              {
+                name: "Available Pokémon ",
+                component: <PokemonView />,
+              },
+              {
+                name: "Teams",
+                component: <TeamView />,
+              },
+            ]}
+          />
+        )}
+      </Box>
+    </Flex>
+  );
+
+  const unsupportedScreenSizeComponent = (
+    <Center mt={40}>
+      <chakra.p fontSize={"xl"}>screen width not supported.</chakra.p>
+    </Center>
+  );
+
   return (
     <PokemonProvider>
       <TeamProvider>
         <ChooseResponsive
-          defaultComponent={
-            <Center mt={40}>
-              <chakra.p fontSize={"xl"}>screen width not supported.</chakra.p>
-            </Center>
-          }
+          defaultComponent={unsupportedScreenSizeComponent}
           breakpointComponents={{
-            //TODO: set to xl for prod
-            [BREAKPOINTNAME.xl]: (
-              <Box
-                m={PADDING.lg}
-                w={1800}
-                py={12}
-                bg={useColorModeValue(COLOR.foreground2, "gray.300")}
-                height={1200}
-                borderRadius={25}
-                boxShadow={"lg"}
-                justifyContent={"center"}
-              >
-                {loginContext.token === undefined ? (
-                  <VStack mt={20}>
-                    <chakra.h1
-                      fontFamily={"Outfit"}
-                      mb={3}
-                      fontSize={{ base: "3xl", md: "4xl" }}
-                      fontWeight="bold"
-                      lineHeight="shorter"
-                      color={useColorModeValue(
-                        COLOR.foreground2,
-                        COLOR.background2_dark
-                      )}
-                    >
-                      Please login to see the shop.
-                    </chakra.h1>
-                    <Image
-                      src={"/images/spongeboss.png"}
-                      height={300}
-                      w={300}
-                    />
-                    <LoginButton />
-                  </VStack>
-                ) : (
-                  <ShopTabs
-                    tabs={[
-                      {
-                        name: "Available Pokémon ",
-                        component: <PokemonView />,
-                      },
-                      {
-                        name: "Teams",
-                        component: <TeamView />,
-                      },
-                    ]}
-                  />
-                )}
-              </Box>
-            ),
+            [BREAKPOINTNAME.lg]: supportedScreenSizeComponent,
+            [BREAKPOINTNAME.xl]: supportedScreenSizeComponent,
           }}
         />
       </TeamProvider>

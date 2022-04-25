@@ -8,8 +8,14 @@ import { MediaContextProvider } from "../lib/responsive/Media";
 import React, { FC, useEffect, useState } from "react";
 import { CurrencyProvider } from "../lib/currency/CurrencyProvider";
 import { LoginProvider } from "../lib/login/LoginProvider";
+import { BreakPointsOverwrite } from "../theme/Breakpoints";
 
 const theme = extendTheme({
+  config: {
+    initialColorMode: "dark",
+    useSystemColorMode: false,
+  },
+  breakpoints: BreakPointsOverwrite,
   styles: {
     global: (props) => ({
       // styles for the `body`
@@ -22,13 +28,6 @@ const theme = extendTheme({
         color: "white",
       },
     }),
-  },
-  breakpoints: {
-    sm: "320px",
-    md: "768px",
-    lg: "960px",
-    xl: "1200px",
-    "2xl": "1536px",
   },
 });
 

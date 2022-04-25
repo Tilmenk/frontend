@@ -40,7 +40,7 @@ export type ColorValue = typeof COLOR[ColorName];
 
 // 2. Add your color mode config
 const config: ThemeConfig = {
-  initialColorMode: "light",
+  initialColorMode: "dark",
   useSystemColorMode: true,
 };
 
