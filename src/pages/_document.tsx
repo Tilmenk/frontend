@@ -3,13 +3,13 @@ import { ColorModeScript } from "@chakra-ui/color-mode";
 import { theme } from "../theme/Color";
 
 export default function Document() {
+  const test = <ColorModeScript initialColorMode={"dark"} />;
   return (
     <Html>
       <Head />
       <body
         style={{ margin: 0, height: "100vh", width: "100vw", maxWidth: "100%" }}
       >
-        <ColorModeScript initialColorMode={"dark"} />
         <Main />
         <NextScript />
       </body>

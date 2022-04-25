@@ -98,7 +98,10 @@ export const Header = (props: {
         />
       }
       variant="solid"
-      onClick={() => loginContext.setToken(undefined)}
+      onClick={() => {
+        loginContext.setToken(undefined);
+        props.router.replace("/");
+      }}
       color={useColorModeValue(COLOR.foreground3, "gray.800")}
       backgroundColor={useColorModeValue(COLOR.foreground2, COLOR.foreground1)}
     >
