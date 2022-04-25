@@ -17,8 +17,9 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import {
+  getCostsFormatted,
   returnAsciiCurrencySymbol,
-  useCurrency,
+  useCurrencyContext,
 } from "../../../../lib/currency/CurrencyProvider";
 import { capitalizeFirstLetter } from "../../../../lib/msc/StringMethods";
 import { Pokemon } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
@@ -48,7 +49,7 @@ export const PokemonDetailButton = (props: {
   pokemon: Pokemon;
   button: JSX.Element;
 }) => {
-  const currencyContext = useCurrency();
+  const currencyContext = useCurrencyContext();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const OverlayOne = () => (
@@ -126,9 +127,9 @@ export const PokemonDetailButton = (props: {
                 <HStack>
                   <chakra.p>costs:</chakra.p>
                   <Badge colorScheme={"white"}>
-                    {props.pokemon.costs[currencyContext.currencySelected]}{" "}
-                    {returnAsciiCurrencySymbol(
-                      currencyContext.currencySelected
+                    {getCostsFormatted(
+                      currencyContext.currencySelected,
+                      props.pokemon.costs[currencyContext.currencySelected]
                     )}
                   </Badge>
                 </HStack>

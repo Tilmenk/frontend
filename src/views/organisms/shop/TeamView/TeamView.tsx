@@ -29,7 +29,7 @@ export const TeamView = () => {
   const loginContext = useLoginContext();
 
   return (
-    <VStack mt={8} alignItems={"flex-start"}>
+    <VStack mt={8} px={24} alignItems={"flex-start"}>
       <chakra.p color={"black"}>Default teams</chakra.p>
       <TeamTable
         teams={teamContext.teams.default}

@@ -12,6 +12,7 @@ import {
   Img,
   HStack,
   Image,
+  Tooltip,
 } from "@chakra-ui/react";
 import { AiFillEdit, AiTwotoneLock } from "react-icons/ai";
 import { BsBoxArrowUpRight, BsFillTrashFill } from "react-icons/bs";
@@ -22,6 +23,11 @@ import {
 } from "../../../../lib/network_data/teamProvider/TeamProvider";
 import { usePokemonContext } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
 import { PokemonDetailButton } from "../PokemonCard/PokemonDetailButton";
+import {
+  getCostsFormatted,
+  useCurrencyContext,
+} from "../../../../lib/currency/CurrencyProvider";
+import { capitalizeFirstLetter } from "../../../../lib/msc/StringMethods";
 
 export const TEAMTABLEVARIANTS = {
   custom: "custom",
@@ -41,6 +47,7 @@ export const TeamTable = (props: {
   const { bg, bg2, bg3 } = props.bgColors;
 
   const pokemonContext = usePokemonContext();
+  const currencyContext = useCurrencyContext();
 
   console.log(pokemonContext.getPokemonByName("pikachu"));
 
@@ -55,7 +62,7 @@ export const TeamTable = (props: {
       <Flex direction={{ base: "row", md: "column" }} bg={bg2} borderRadius={5}>
         <SimpleGrid
           spacingY={3}
-          columns={{ base: 1, md: 4 }}
+          columns={{ base: 1, md: 5 }}
           w={{ base: 120, md: "full" }}
           textTransform="uppercase"
           bg={bg3}
@@ -69,6 +76,7 @@ export const TeamTable = (props: {
           <span>Name</span>
           <span>Creator</span>
           <span>Members</span>
+          <chakra.span textAlign={{ md: "center" }}>Costs</chakra.span>
           <chakra.span textAlign={{ md: "right" }}>Actions</chakra.span>
         </SimpleGrid>
         {props.teams.map((team) => {
@@ -76,7 +84,7 @@ export const TeamTable = (props: {
             <SimpleGrid
               key={team.name + team.pokemon + team.creator}
               spacingY={3}
-              columns={{ base: 1, md: 4 }}
+              columns={{ base: 1, md: 5 }}
               w="full"
               py={2}
               px={10}
@@ -99,27 +107,43 @@ export const TeamTable = (props: {
                       <PokemonDetailButton
                         pokemon={pokemon}
                         button={
-                          <IconButton
-                            key={index}
-                            icon={
-                              <Image
-                                src={pokemon.sprites.small}
-                                w={50}
-                                h={50}
-                              />
-                            }
-                            size={"sm"}
-                            variant="outline"
-                            alignItems={"center"}
-                            justifyContent={"center"}
-                            aria-label={"pokemon"}
-                          />
+                          <Tooltip label={capitalizeFirstLetter(pokemon.name)}>
+                            <IconButton
+                              key={index}
+                              icon={
+                                <Image
+                                  src={pokemon.sprites.small}
+                                  w={50}
+                                  h={50}
+                                />
+                              }
+                              size={"sm"}
+                              variant="outline"
+                              alignItems={"center"}
+                              justifyContent={"center"}
+                              aria-label={"pokemon"}
+                            />
+                          </Tooltip>
                         }
                       />
                     );
                   })}
                 </HStack>
               </Flex>
+              <Flex justify={{ md: "center" }}>
+                {getCostsFormatted(
+                  currencyContext.currencySelected,
+                  team.pokemon
+                    .map(
+                      (pokemonName) =>
+                        pokemonContext.getPokemonByName(pokemonName).costs[
+                          currencyContext.currencySelected
+                        ]
+                    )
+                    .reduce((prev, current) => prev + current)
+                )}
+              </Flex>
+
               <Flex justify={{ md: "end" }}>
                 <ButtonGroup variant="solid" size="sm" spacing={3}>
                   <IconButton

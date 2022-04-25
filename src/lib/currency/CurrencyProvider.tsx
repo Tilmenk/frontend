@@ -34,7 +34,7 @@ export type CurrencyState = {
   toggleCurrency: () => void;
 };
 
-export function useCurrency(): CurrencyState {
+export function useCurrencyContext(): CurrencyState {
   const context = useContext(CurrencyContext);
 
   if (!context)
@@ -53,3 +53,6 @@ export const returnAsciiCurrencySymbol = (currency: Currency) => {
       return "€";
   }
 };
+
+export const getCostsFormatted = (currency: Currency, costs: number) =>
+  costs.toFixed(2) + " " + returnAsciiCurrencySymbol(currency);

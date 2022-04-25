@@ -10,8 +10,9 @@ import {
 } from "@chakra-ui/react";
 import {
   CURRENCY,
+  getCostsFormatted,
   returnAsciiCurrencySymbol,
-  useCurrency,
+  useCurrencyContext,
 } from "../../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
 import { Pokemon } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
@@ -20,7 +21,7 @@ export const PokemonCard = (props: {
   pokemon?: Pokemon;
   placeholder?: boolean;
 }) => {
-  const currencyContext = useCurrency();
+  const currencyContext = useCurrencyContext();
 
   const [fetching, setFetching] = useState(false);
 
@@ -46,7 +47,7 @@ export const PokemonCard = (props: {
           onLoad={() => setFetching(false)}
         ></Img>
         <Box
-          w={{ base: 56, md: 36 }}
+          w={{ base: 59, md: 40 }}
           bg={useColorModeValue("white", "gray.800")}
           mt={-5}
           shadow="lg"
@@ -75,8 +76,10 @@ export const PokemonCard = (props: {
               fontWeight="bold"
               color={useColorModeValue("gray.800", "gray.200")}
             >
-              {returnAsciiCurrencySymbol(currencyContext.currencySelected)}
-              {props.pokemon.costs[currencyContext.currencySelected]}
+              {getCostsFormatted(
+                currencyContext.currencySelected,
+                props.pokemon.costs[currencyContext.currencySelected]
+              )}
             </chakra.span>
 
             {/*  <chakra.button
