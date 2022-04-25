@@ -6,9 +6,10 @@ export const LoginProvider: FC<any> = (props) => {
   //[React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>, T] {
 
   const [token, setToken] = useState("undefined");
+  const [name, setName] = useState("henk");
 
   return (
-    <LoginContext.Provider value={{ token, setToken }}>
+    <LoginContext.Provider value={{ token, setToken, name, setName }}>
       {props.children}
     </LoginContext.Provider>
   );
@@ -16,6 +17,8 @@ export const LoginProvider: FC<any> = (props) => {
 export type LoginState = {
   token: string;
   setToken: (string) => void;
+  name: string;
+  setName: (string) => void;
 };
 
 export function useLoginContext(): LoginState {

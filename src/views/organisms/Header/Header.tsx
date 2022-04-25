@@ -193,7 +193,11 @@ export const Header = (props: {
                 }
               />
               {ShopButton}
+
               {loginContext.token != undefined ? LogoutButton : undefined}
+              {loginContext.token != undefined ? (
+                <chakra.p ml={2}>logged in as '{loginContext.name}'</chakra.p>
+              ) : undefined}
 
               {/* <IconButton
                 display={{ base: "flex", md: "none" }}
