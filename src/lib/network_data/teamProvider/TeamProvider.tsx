@@ -1,4 +1,5 @@
 import React, { createContext, FC, useContext, useRef, useState } from "react";
+import { usePokemonContext } from "../pokemonProvider/PokemonProvider";
 
 const LoginContext = createContext(undefined);
 
@@ -6,9 +7,70 @@ export type PokemonTeam = {
   name: string;
   pokemon: string[];
 };
+export type PokemonTeamCustom = PokemonTeam & {
+  creator: string;
+};
+
+export type PokemonTeams = {
+  default: PokemonTeam[];
+  custom: PokemonTeamCustom[];
+};
+const mockTeams: PokemonTeams = {
+  default: [
+    {
+      name: "default_1",
+      pokemon: [
+        "pikachu",
+        "squirtle",
+        "bulbasaur",
+        "moltres",
+        "pikachu",
+        "pikachu",
+      ],
+    },
+    {
+      name: "default_2",
+      pokemon: [
+        "pikachu",
+        "squirtle",
+        "bulbasaur",
+        "moltres",
+        "pikachu",
+        "pikachu",
+      ],
+    },
+    {
+      name: "default_3",
+      pokemon: [
+        "pikachu",
+        "squirtle",
+        "bulbasaur",
+        "moltres",
+        "pikachu",
+        "pikachu",
+      ],
+    },
+  ],
+  custom: [
+    {
+      name: "MyTeam",
+      creator: "Henk",
+      pokemon: [
+        "pikachu",
+        "squirtle",
+        "bulbasaur",
+        "moltres",
+        "pikachu",
+        "pikachu",
+      ],
+    },
+  ],
+};
 
 export const TeamProvider: FC<any> = (props) => {
-  const [teams, setTeams] = useState<PokemonTeam[]>([]);
+  //TODO: fetch data
+  const [teams, setTeams] = useState<PokemonTeams>(mockTeams);
+  //const pokemonContext = usePokemonContext();
 
   return (
     <LoginContext.Provider value={{ teams, setTeams }}>
@@ -16,12 +78,12 @@ export const TeamProvider: FC<any> = (props) => {
     </LoginContext.Provider>
   );
 };
-export type LoginState = {
-  teams: PokemonTeam[];
-  setTeams: (fetchedTeams: PokemonTeam[]) => void;
+export type TeamState = {
+  teams: PokemonTeams;
+  setTeams: (fetchedTeams: PokemonTeams) => void;
 };
 
-export function useTeamContext(): LoginState {
+export function useTeamContext(): TeamState {
   const context = useContext(LoginContext);
 
   if (!context)

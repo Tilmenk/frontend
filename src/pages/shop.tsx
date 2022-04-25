@@ -36,6 +36,7 @@ const ShopPage = () => {
             </Center>
           }
           breakpointComponents={{
+            //TODO: set to xl for prod
             [BREAKPOINTNAME.xl]: (
               <Box
                 m={PADDING.lg}

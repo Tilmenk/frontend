@@ -13,7 +13,7 @@ import {
   useCurrency,
 } from "../../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
-import { Pokemon } from "../../../../lib/network_data/pokemonProvider/LoginProvider";
+import { Pokemon } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
 
 export const PokemonCard = (props: {
   pokemon?: Pokemon;
