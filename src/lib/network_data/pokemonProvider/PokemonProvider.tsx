@@ -105,6 +105,44 @@ const mockPokemon: Pokemon[] = [
     speed: 70,
     legendary: false,
   },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "blastoise",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "charmander",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
 
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
