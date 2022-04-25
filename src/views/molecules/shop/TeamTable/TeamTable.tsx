@@ -109,23 +109,25 @@ export const TeamTable = (props: {
                       <PokemonDetailButton
                         pokemon={pokemon}
                         button={
-                          <Tooltip label={capitalizeFirstLetter(pokemon.name)}>
-                            <IconButton
-                              key={pokemonName}
-                              icon={
+                          <IconButton
+                            key={pokemonName}
+                            icon={
+                              <Tooltip
+                                label={capitalizeFirstLetter(pokemon.name)}
+                              >
                                 <Image
                                   src={pokemon.sprites.small}
                                   boxSize={55}
                                   objectFit="cover"
                                 />
-                              }
-                              size={"md"}
-                              variant="outline"
-                              alignItems={"center"}
-                              justifyContent={"center"}
-                              aria-label={"pokemon"}
-                            />
-                          </Tooltip>
+                              </Tooltip>
+                            }
+                            size={"md"}
+                            variant="outline"
+                            alignItems={"center"}
+                            justifyContent={"center"}
+                            aria-label={"pokemon"}
+                          />
                         }
                       />
                     );
