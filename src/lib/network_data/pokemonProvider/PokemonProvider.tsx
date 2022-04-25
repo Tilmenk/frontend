@@ -163,6 +163,103 @@ const mockPokemon: Pokemon[] = [
     speed: 70,
     legendary: true,
   },
+  /*{
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "pikachu",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    },
+    type1: "electric",
+    type2: "ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "squirtle",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    type1: "water",
+    type2: undefined,
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "bulbasaur",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "blastoise",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "charmander",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "moltres",
@@ -184,23 +281,101 @@ const mockPokemon: Pokemon[] = [
   },
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "moltres",
+    name: "pikachu",
     sprites: {
       small:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
       large:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
     },
-    type1: "fire",
-    type2: "flying",
+    type1: "electric",
+    type2: "ground",
     health: 65,
     attack: 45,
     attack_sp: 60,
     defense: 50,
     defense_sp: 40,
     speed: 70,
-    legendary: true,
+    legendary: false,
   },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "squirtle",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    type1: "water",
+    type2: undefined,
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "bulbasaur",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "blastoise",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "charmander",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "moltres",
@@ -222,23 +397,101 @@ const mockPokemon: Pokemon[] = [
   },
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "moltres",
+    name: "pikachu",
     sprites: {
       small:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
       large:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
     },
-    type1: "fire",
-    type2: "flying",
+    type1: "electric",
+    type2: "ground",
     health: 65,
     attack: 45,
     attack_sp: 60,
     defense: 50,
     defense_sp: 40,
     speed: 70,
-    legendary: true,
+    legendary: false,
   },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "squirtle",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    type1: "water",
+    type2: undefined,
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "bulbasaur",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "blastoise",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "charmander",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "moltres",
@@ -260,6 +513,103 @@ const mockPokemon: Pokemon[] = [
   },
   {
     costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "pikachu",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    },
+    type1: "electric",
+    type2: "ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "squirtle",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    type1: "water",
+    type2: undefined,
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "bulbasaur",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "blastoise",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "charmander",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "moltres",
     sprites: {
       small:
@@ -277,6 +627,354 @@ const mockPokemon: Pokemon[] = [
     speed: 70,
     legendary: true,
   },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "pikachu",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    },
+    type1: "electric",
+    type2: "ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "squirtle",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    type1: "water",
+    type2: undefined,
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "bulbasaur",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "blastoise",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "charmander",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "pikachu",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    },
+    type1: "electric",
+    type2: "ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "squirtle",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    type1: "water",
+    type2: undefined,
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "bulbasaur",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "blastoise",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "charmander",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "pikachu",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    },
+    type1: "electric",
+    type2: "ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "squirtle",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    },
+    type1: "water",
+    type2: undefined,
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "bulbasaur",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "blastoise",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "charmander",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    },
+    type1: "grass",
+    type2: "poison",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
+  },
+
+  {
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "moltres",
+    sprites: {
+      small:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png",
+      large:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    },
+    type1: "fire",
+    type2: "flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
+  },*/
 ];
 
 export const PokemonProvider: FC<any> = (props) => {

@@ -29,26 +29,20 @@ export const PokemonCard = (props: {
   return (
     // @ts-ignore
     <Skeleton isLoaded={!fetching} {...props}>
-      <Flex
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        mx="auto"
-      >
+      <Flex direction="column" justifyContent="center" alignItems="center">
         <Img
           src={props.pokemon.sprites.large}
           objectFit={"scale-down"}
           bg={props.pokemon.legendary ? "#FFD60A" : "gray.300"}
-          h={{ lg: 150, xl: 200 }}
-          w={{ lg: 150, xl: 200 }}
+          h={{ lg: 180, xl: 200 }}
+          w={{ lg: 180, xl: 200 }}
           rounded="lg"
           boxShadow="dark-lg"
-          p="6"
+          p={6}
           bgPos="center"
           onLoad={() => setFetching(false)}
         ></Img>
         <Box
-          w={{ xxl: 59 }}
           bg={useColorModeValue("white", "gray.800")}
           mt={-5}
           shadow="lg"
@@ -60,12 +54,12 @@ export const PokemonCard = (props: {
             textAlign="center"
             fontWeight="bold"
             textTransform="uppercase"
+            fontSize={{ lg: "sm", xl: "md" }}
             color={useColorModeValue("gray.800", "white")}
             letterSpacing={1}
           >
             {props.pokemon.name}
           </chakra.h3>
-
           <Flex
             alignItems="center"
             justifyContent="space-between"
@@ -74,8 +68,10 @@ export const PokemonCard = (props: {
             bg={useColorModeValue("gray.200", "gray.700")}
           >
             <chakra.span
+              fontSize={{ lg: "sm", xl: "md" }}
               fontWeight="bold"
               color={useColorModeValue("gray.800", "gray.200")}
+              mr={2}
             >
               {getCostsFormatted(
                 currencyContext.currencySelected,
