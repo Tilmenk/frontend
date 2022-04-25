@@ -11,51 +11,9 @@ import {
   CURRENCY,
   returnAsciiCurrencySymbol,
   useCurrency,
-} from "../../../lib/currency/CurrencyProvider";
+} from "../../../../lib/currency/CurrencyProvider";
 import { PokemonDetailButton } from "./PokemonDetailButton";
-
-export const POKEMONTYPE = {
-  normal: "normal",
-  fire: "fire",
-  water: "water",
-  electric: "electric",
-  grass: "grass",
-  ice: "ice",
-  fighting: "fighting",
-  poison: "poison",
-  ground: "ground",
-  flying: "flying",
-  psychic: "psychic",
-  bug: "bug",
-  rock: "rock",
-  ghost: "psychic",
-  dragon: "dragon",
-  dark: "dark",
-  steel: "steel",
-  fairy: "fairy",
-} as const;
-export type PokemonType = keyof typeof POKEMONTYPE;
-
-export type Pokemon = {
-  //properties from microservices
-  imageUrl: string;
-  costs: {
-    [CURRENCY.dollar]: number;
-    [CURRENCY.euro]: number;
-    [CURRENCY.bitcoin]: number;
-  };
-  //properties from warehouse
-  name: string;
-  type1: PokemonType;
-  type2?: PokemonType;
-  health: number;
-  attack: number;
-  attack_sp: number;
-  defense: number;
-  defense_sp: number;
-  speed: number;
-  legendary: boolean;
-};
+import { Pokemon } from "../../../../lib/network_data/pokemonProvider/LoginProvider";
 
 export const PokemonCard = (props: {
   pokemon?: Pokemon;
@@ -75,7 +33,7 @@ export const PokemonCard = (props: {
         mx="auto"
       >
         <Img
-          src={props.pokemon.imageUrl}
+          src={props.pokemon.sprites.large}
           objectFit={"scale-down"}
           bg={props.pokemon.legendary ? "#FFD60A" : "gray.300"}
           h={200}

@@ -20,8 +20,8 @@ import { Pokemon } from "./PokemonCard";
 import {
   returnAsciiCurrencySymbol,
   useCurrency,
-} from "../../../lib/currency/CurrencyProvider";
-import { capitalizeFirstLetter } from "../../../lib/msc/StringMethods";
+} from "../../../../lib/currency/CurrencyProvider";
+import { capitalizeFirstLetter } from "../../../../lib/msc/StringMethods";
 
 const PokemonTypeToColor = {
   normal: "gray",

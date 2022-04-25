@@ -15,7 +15,7 @@ import { COLOR } from "../theme/Color";
 import React, { useState } from "react";
 import { Router } from "next/router";
 import { Diglett } from "../views/atoms/animations/Diglett/Diglett";
-import { Greeting } from "../views/organisms/Greeting/Greeting";
+import { Greeting } from "../views/organisms/index/Greeting/Greeting";
 import { CurrencyState } from "../lib/currency/CurrencyProvider";
 
 const pikachu = require("../../public/images/pikachu.png");
