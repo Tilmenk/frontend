@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   chakra,
   Box,
@@ -15,14 +15,26 @@ import {
 import { PokemonDetailButton } from "./PokemonDetailButton";
 
 export type Pokemon = {
-  name: string;
-  price: {
+  //properties from microservices
+  imageUrl: string;
+  costs: {
     [CURRENCY.dollar]: number;
     [CURRENCY.euro]: number;
     [CURRENCY.bitcoin]: number;
   };
-  imageUrl: string;
+  //properties from warehouse
+  name: string;
+  type1: string;
+  type2: string;
+  health: number;
+  attack: number;
+  attack_sp: number;
+  defense: number;
+  defense_sp: number;
+  speed: number;
+  legendary: boolean;
 };
+
 export const PokemonCard = (props: {
   pokemon?: Pokemon;
   placeholder?: boolean;
@@ -43,7 +55,7 @@ export const PokemonCard = (props: {
         <Img
           src={props.pokemon.imageUrl}
           objectFit={"scale-down"}
-          bg="gray.300"
+          bg={props.pokemon.legendary ? "#FFD60A" : "gray.300"}
           h={200}
           w={200}
           rounded="lg"
@@ -83,7 +95,7 @@ export const PokemonCard = (props: {
               color={useColorModeValue("gray.800", "gray.200")}
             >
               {returnAsciiCurrencySymbol(currencyContext.currencySelected)}
-              {props.pokemon.price[currencyContext.currencySelected]}
+              {props.pokemon.costs[currencyContext.currencySelected]}
             </chakra.span>
 
             {/*  <chakra.button
@@ -105,7 +117,7 @@ export const PokemonCard = (props: {
           >
             Add to Team
           </chakra.button>*/}
-            <PokemonDetailButton />
+            <PokemonDetailButton pokemon={props.pokemon} />
           </Flex>
         </Box>
       </Flex>

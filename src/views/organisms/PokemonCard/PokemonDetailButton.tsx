@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   chakra,
+  HStack,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -11,10 +12,12 @@ import {
   ModalOverlay,
   useColorModeValue,
   useDisclosure,
+  VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { Pokemon } from "./PokemonCard";
 
-export const PokemonDetailButton = () => {
+export const PokemonDetailButton = (props: { pokemon: Pokemon }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const OverlayOne = () => (
     <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px) " />
@@ -49,9 +52,16 @@ export const PokemonDetailButton = () => {
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
         <ModalContent>
-          <ModalHeader></ModalHeader>
+          <ModalHeader>
+            <chakra.p> {props.pokemon.name} </chakra.p>
+          </ModalHeader>
           <ModalCloseButton />
-          <ModalBody></ModalBody>
+          <ModalBody>
+            <HStack>
+              <VStack></VStack>
+              <VStack />
+            </HStack>
+          </ModalBody>
           <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>

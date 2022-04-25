@@ -31,164 +31,97 @@ import { ShopTabs } from "../views/organisms/ShopTabs/ShopTabs";
 
 const mockPokemon: Pokemon[] = [
   {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "Pikachu",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    type1: "Electro",
+    type2: "Ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
   },
+
   {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "Squirtle",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    type1: "Electro",
+    type2: "Ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
   },
   {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "Bulbasaur",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    type1: "Electro",
+    type2: "Ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
   },
   {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "Bulbasaur2",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    type1: "Electro",
+    type2: "Ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
   },
   {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
     name: "Bulbasaur3",
     imageUrl:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    type1: "Electro",
+    type2: "Ground",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: false,
   },
   {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
+    costs: { dollar: 69, bitcoin: 0.01, euro: 50 },
+    name: "Moltres",
     imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-  },
-  {
-    price: { dollar: 69, bitcoin: 0.01, euro: 50 },
-    name: "Bulbasaur3",
-    imageUrl:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/146.svg",
+    type1: "Fire",
+    type2: "Flying",
+    health: 65,
+    attack: 45,
+    attack_sp: 60,
+    defense: 50,
+    defense_sp: 40,
+    speed: 70,
+    legendary: true,
   },
 ];
-
-console.log(mockPokemon.length);
 
 const ShopPage = () => {
   const loginContext = useLoginContext();
