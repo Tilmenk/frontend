@@ -13,8 +13,11 @@ import {
   HStack,
   Image,
   Tooltip,
+  Box,
+  Center,
+  Divider,
 } from "@chakra-ui/react";
-import { AiFillEdit, AiTwotoneLock } from "react-icons/ai";
+import { RiAddFill, RiMoreFill } from "react-icons/ri";
 import { BsBoxArrowUpRight, BsFillTrashFill } from "react-icons/bs";
 import {
   PokemonTeam,
@@ -28,6 +31,7 @@ import {
   useCurrencyContext,
 } from "../../../../lib/currency/CurrencyProvider";
 import { capitalizeFirstLetter } from "../../../../lib/msc/StringMethods";
+import { AddTeamModal } from "./AddTeamModal";
 
 export const TEAMTABLEVARIANTS = {
   custom: "custom",
@@ -44,6 +48,10 @@ export const TeamTable = (props: {
   };
   variant: TeamTableVariant;
 }) => {
+  const isCustomTeams =
+    props.teams.filter((team: PokemonTeamCustom) => team.creator != undefined)
+      .length > 0;
+
   const { bg, bg2, bg3 } = props.bgColors;
 
   const pokemonContext = usePokemonContext();
@@ -91,6 +99,7 @@ export const TeamTable = (props: {
               py={2}
               px={10}
               fontWeight="hairline"
+              alignItems={"center"}
             >
               <span>{team.name}</span>
               <chakra.span
@@ -167,7 +176,7 @@ export const TeamTable = (props: {
                   ) : undefined}
                   <IconButton
                     colorScheme="blue"
-                    icon={<BsBoxArrowUpRight />}
+                    icon={<RiMoreFill />}
                     aria-label={"test"}
                   />
                 </ButtonGroup>
@@ -175,6 +184,20 @@ export const TeamTable = (props: {
             </SimpleGrid>
           );
         })}
+        {isCustomTeams ? (
+          <>
+            <Divider />
+            <Center w="full" py={2} px={10}>
+              <AddTeamModal
+                button={
+                  <Button rightIcon={<RiAddFill />} size={"md"} w={70}>
+                    add
+                  </Button>
+                }
+              />
+            </Center>
+          </>
+        ) : null}
       </Flex>
     </Stack>
   );
