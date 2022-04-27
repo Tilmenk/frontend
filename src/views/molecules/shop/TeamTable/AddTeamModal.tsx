@@ -76,6 +76,11 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
     setCreateError("");
 
     console.log(input_name);
+    if (input_name.length < 1) {
+      setCreateError("nameTooShort");
+      return;
+    }
+
     if (teamContext.teams.custom.find((team) => team.name === input_name)) {
       console.log("filter true");
       setCreateError("nameAlreadyExists");
@@ -258,6 +263,8 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
                   <chakra.p color={"red"}> Select 6 Pokemon. </chakra.p>
                 ) : createError === "nameAlreadyExists" ? (
                   <chakra.p color={"red"}> Name already exists. </chakra.p>
+                ) : createError === "nameTooShort" ? (
+                  <chakra.p color={"red"}> Name too short. </chakra.p>
                 ) : undefined}
                 <Box />
               </Box>
