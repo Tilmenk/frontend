@@ -41,6 +41,7 @@ export const TeamView = () => {
         teams={teamContext.teams.custom}
         bgColors={{ bg, bg2, bg3 }}
         variant={TEAMTABLEVARIANTS.custom}
+        isCustomTeams
       />
     </VStack>
   );

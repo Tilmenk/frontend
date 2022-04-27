@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   chakra,
   Flex,
@@ -32,6 +32,7 @@ import {
 } from "../../../../lib/currency/CurrencyProvider";
 import { capitalizeFirstLetter } from "../../../../lib/msc/StringMethods";
 import { AddTeamModal } from "./AddTeamModal";
+import { Loading } from "../../../atoms/animations/Loading/Loading";
 
 export const TEAMTABLEVARIANTS = {
   custom: "custom",
@@ -47,17 +48,36 @@ export const TeamTable = (props: {
     bg3: string;
   };
   variant: TeamTableVariant;
+  isCustomTeams?: boolean;
 }) => {
-  const isCustomTeams =
-    props.teams.filter((team: PokemonTeamCustom) => team.creator != undefined)
-      .length > 0;
+  const { isCustomTeams } = props;
 
   const { bg, bg2, bg3 } = props.bgColors;
 
+  const teamContext = useTeamContext();
   const pokemonContext = usePokemonContext();
   const currencyContext = useCurrencyContext();
 
-  console.log(pokemonContext.getPokemonByName("pikachu"));
+  const [deleteLoading, setDeleteLoading] = useState(
+    Object.fromEntries(props.teams.map((team, index) => [team.name, false]))
+  );
+
+  const deleteTeam = (index: number, teamName: string) => {
+    setDeleteLoading({ ...deleteLoading, [teamName]: true });
+    if (isCustomTeams) {
+      setTimeout(() => {
+        const tempTeam = teamContext.teams.custom;
+        tempTeam.splice(index, 1);
+        teamContext.setTeams({
+          ...teamContext.teams,
+          custom: [...tempTeam],
+        });
+        const nextLoading = deleteLoading;
+        nextLoading[index] = false;
+        setDeleteLoading({ ...deleteLoading, [teamName]: false });
+      }, 1000);
+    }
+  };
 
   return (
     <Stack
@@ -89,7 +109,7 @@ export const TeamTable = (props: {
           </chakra.span>
           <chakra.span textAlign={{ md: "right" }}>Actions</chakra.span>
         </SimpleGrid>
-        {props.teams.map((team) => {
+        {props.teams.map((team, teamIndex) => {
           return (
             <SimpleGrid
               key={team.name + team.pokemon + team.creator}
@@ -116,6 +136,7 @@ export const TeamTable = (props: {
                       pokemonContext.getPokemonByName(pokemonName);
                     return (
                       <PokemonDetailButton
+                        key={pokemonName + index}
                         pokemon={pokemon}
                         button={
                           <IconButton
@@ -166,19 +187,24 @@ export const TeamTable = (props: {
                         icon={<AiFillEdit />}
                         aria-label={"test"}
                       />*/}
-                      <IconButton
-                        colorScheme="red"
-                        variant="outline"
-                        icon={<BsFillTrashFill />}
-                        aria-label={"test"}
-                      />
+                      {deleteLoading[team.name] ? (
+                        <Loading size={10} />
+                      ) : (
+                        <IconButton
+                          colorScheme="red"
+                          variant="outline"
+                          icon={<BsFillTrashFill />}
+                          aria-label={"test"}
+                          onClick={() => deleteTeam(teamIndex, team.name)}
+                        />
+                      )}
                     </>
                   ) : undefined}
-                  <IconButton
+                  {/* <IconButton
                     colorScheme="blue"
                     icon={<RiMoreFill />}
                     aria-label={"test"}
-                  />
+                  />*/}
                 </ButtonGroup>
               </Flex>
             </SimpleGrid>

@@ -64,6 +64,30 @@ const mockTeams: PokemonTeams = {
         "charmander",
       ],
     },
+    {
+      name: "MyTeam2",
+      creator: "Henk",
+      pokemon: [
+        "pikachu",
+        "squirtle",
+        "bulbasaur",
+        "moltres",
+        "blastoise",
+        "charmander",
+      ],
+    },
+    {
+      name: "MyTeam3",
+      creator: "Henk",
+      pokemon: [
+        "pikachu",
+        "squirtle",
+        "bulbasaur",
+        "moltres",
+        "blastoise",
+        "charmander",
+      ],
+    },
   ],
 };
 

@@ -127,7 +127,7 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
           <ModalCloseButton />
           <ModalBody px={12}>
             <VStack alignItems={"flex-start"}>
-              <HStack>
+              <HStack w={"full"} justifyContent={"space-between"}>
                 <chakra.p mr={4}>Pokemon 1:</chakra.p>
                 <Select
                   onChange={(newValue) => {
@@ -142,7 +142,7 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
                   })}
                 ></Select>
               </HStack>
-              <HStack>
+              <HStack w={"full"} justifyContent={"space-between"}>
                 <chakra.p mr={4}>Pokemon 2:</chakra.p>
                 <Select
                   onChange={(newValue) => {
@@ -157,7 +157,7 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
                   })}
                 ></Select>
               </HStack>
-              <HStack>
+              <HStack w={"full"} justifyContent={"space-between"}>
                 <chakra.p mr={4}>Pokemon 3:</chakra.p>
                 <Select
                   onChange={(newValue) => {
@@ -172,7 +172,7 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
                   })}
                 ></Select>
               </HStack>
-              <HStack>
+              <HStack w={"full"} justifyContent={"space-between"}>
                 <chakra.p mr={4}>Pokemon 4:</chakra.p>
                 <Select
                   onChange={(newValue) => {
@@ -187,7 +187,7 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
                   })}
                 ></Select>
               </HStack>
-              <HStack>
+              <HStack w={"full"} justifyContent={"space-between"}>
                 <chakra.p mr={4}>Pokemon 5:</chakra.p>
                 <Select
                   onChange={(newValue) => {
@@ -202,7 +202,7 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
                   })}
                 ></Select>
               </HStack>
-              <HStack>
+              <HStack w={"full"} justifyContent={"space-between"}>
                 <chakra.p mr={4}>Pokemon 6:</chakra.p>
                 <Select
                   onChange={(newValue) => {
