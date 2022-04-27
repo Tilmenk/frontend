@@ -3,7 +3,10 @@ import {
   Box,
   Button,
   chakra,
+  FormControl,
+  FormLabel,
   HStack,
+  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -30,6 +33,7 @@ import Select from "react-select";
 import { camelCaseAttributes } from "framer-motion/types/render/svg/utils/camel-case-attrs";
 import { Loading } from "../../../atoms/animations/Loading/Loading";
 import { useTeamContext } from "../../../../lib/network_data/teamProvider/TeamProvider";
+import { useLoginContext } from "../../../../lib/login/LoginProvider";
 
 const customStyles = {
   option: (provided, state) => ({
@@ -46,9 +50,10 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
   const currencyContext = useCurrencyContext();
   const pokemonContext = usePokemonContext();
   const teamContext = useTeamContext();
+  const loginContext = useLoginContext();
 
   const [loading, setLoading] = useState(false);
-  const [createError, setCreateError] = useState(false);
+  const [createError, setCreateError] = useState("");
 
   const initialSelectedPokemon = {
     1: undefined,
@@ -68,13 +73,20 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
   };
 
   const createTeam = () => {
-    console.log(selectedPokemonState);
+    setCreateError("");
+
+    console.log(input_name);
+    if (teamContext.teams.custom.find((team) => team.name === input_name)) {
+      console.log("filter true");
+      setCreateError("nameAlreadyExists");
+      return;
+    }
+
     if (
       Object.values(selectedPokemonState).every(
         (x) => x != undefined && pokemonContext.getPokemonByName(x) != undefined
       )
     ) {
-      console.log("all good!");
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
@@ -83,8 +95,8 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
           custom: [
             ...teamContext.teams.custom,
             {
-              name: "test",
-              creator: "test",
+              name: input_name,
+              creator: loginContext.name,
               pokemon: Object.values(selectedPokemonState),
             },
           ],
@@ -92,15 +104,23 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
         onClose();
       }, 1000);
     } else {
-      console.log("oh no !");
-      setCreateError(true);
+      setCreateError("notEnoughPokemon");
     }
   };
+
+  //NAME
+  const defaultName = "MyTeam" + "-" + (teamContext.teams.custom.length + 1);
+  const [input_name, setInput_name] = useState(defaultName);
+  const handleInputChange_name = (e) => setInput_name(e.target.value);
 
   const { isOpen, onOpen, onClose } = useDisclosure({
     onClose() {
       setSelectedPokemonState(initialSelectedPokemon);
-      setCreateError(false);
+      setCreateError("");
+      setInput_name(defaultName);
+    },
+    onOpen() {
+      setInput_name(defaultName);
     },
   });
   const OverlayOne = () => (
@@ -218,14 +238,26 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
                 ></Select>
               </HStack>
             </VStack>
+            <FormControl isRequired={true} mt={4}>
+              <FormLabel htmlFor="firstName">Team name</FormLabel>
+              <Input
+                maxLength={12}
+                id="email"
+                type="email"
+                value={input_name}
+                onChange={handleInputChange_name}
+              />
+            </FormControl>
           </ModalBody>
           <ModalFooter>
             <HStack>
               <Box position={"absolute"} left={6}>
                 {loading ? (
                   <Loading size={20} />
-                ) : createError ? (
+                ) : createError === "notEnoughPokemon" ? (
                   <chakra.p color={"red"}> Select 6 Pokemon. </chakra.p>
+                ) : createError === "nameAlreadyExists" ? (
+                  <chakra.p color={"red"}> Name already exists. </chakra.p>
                 ) : undefined}
                 <Box />
               </Box>

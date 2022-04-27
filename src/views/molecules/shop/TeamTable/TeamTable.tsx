@@ -72,8 +72,6 @@ export const TeamTable = (props: {
           ...teamContext.teams,
           custom: [...tempTeam],
         });
-        const nextLoading = deleteLoading;
-        nextLoading[index] = false;
         setDeleteLoading({ ...deleteLoading, [teamName]: false });
       }, 1000);
     }

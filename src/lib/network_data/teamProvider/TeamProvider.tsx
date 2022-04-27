@@ -65,7 +65,7 @@ const mockTeams: PokemonTeams = {
       ],
     },
     {
-      name: "MyTeam2",
+      name: "MyTeam-2",
       creator: "Henk",
       pokemon: [
         "pikachu",
@@ -77,7 +77,7 @@ const mockTeams: PokemonTeams = {
       ],
     },
     {
-      name: "MyTeam3",
+      name: "MyTeam-3",
       creator: "Henk",
       pokemon: [
         "pikachu",
