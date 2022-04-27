@@ -46,7 +46,7 @@ export const LoginButton = () => {
     setLoginError(false);
     setTimeout(() => {
       setLoading(false);
-      if (input_mail === "henk") {
+      if (input_mail === "obi-wan") {
         loginContext.setToken("mock_tocken");
       } else {
         setLoginError(true);

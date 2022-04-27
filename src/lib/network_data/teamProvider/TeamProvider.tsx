@@ -54,7 +54,7 @@ const mockTeams: PokemonTeams = {
   custom: [
     {
       name: "MyTeam",
-      creator: "Henk",
+      creator: "Obi-Wan",
       pokemon: [
         "pikachu",
         "squirtle",
@@ -66,7 +66,7 @@ const mockTeams: PokemonTeams = {
     },
     {
       name: "MyTeam-2",
-      creator: "Henk",
+      creator: "Obi-Wan",
       pokemon: [
         "pikachu",
         "squirtle",
@@ -78,7 +78,7 @@ const mockTeams: PokemonTeams = {
     },
     {
       name: "MyTeam-3",
-      creator: "Henk",
+      creator: "Obi-Wan",
       pokemon: [
         "pikachu",
         "squirtle",
