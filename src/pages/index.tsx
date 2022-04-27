@@ -26,7 +26,7 @@ const IndexPage: React.FC<{ router: Router; currencyState: CurrencyState }> = (
   return (
     <>
       <Flex
-        px={4}
+        px={{ sm: 6, md: 6, lg: 24, xl: 32 }}
         py={{ sm: 6, md: 6, lg: 16, xl: 32 }}
         justifyContent={{ sm: "center", md: "flex-end" }}
         alignItems={"flex-start"}

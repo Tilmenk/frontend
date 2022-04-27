@@ -13,7 +13,7 @@ import { Router } from "next/router";
 export const Greeting = (props: { router: Router }) => {
   return (
     <Box
-      w={{ sm: 300, md: 350, lg: 300, xl: 460 }}
+      w={{ sm: 300, md: 350, lg: 400, xl: 460 }}
       p={4}
       mr={{ base: 0, lg: 0, "2xl": 24 }}
       //backgroundColor={"green"}
