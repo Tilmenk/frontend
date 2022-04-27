@@ -31,7 +31,7 @@ const ShopPage = () => {
     <Flex
       justifyContent={"center"}
       display={{ base: "none", lg: "flex" }}
-      pointer-events={{ base: undefined, lg: "none" }}
+      pointerEvents={{ base: "none", lg: "auto" }}
     >
       <Box
         m={PADDING.lg}
