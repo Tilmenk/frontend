@@ -14,7 +14,17 @@ export const ShopTabs = (props: { tabs: Tab[] }) => {
     <Tabs isLazy>
       <TabList>
         {props.tabs.map((tab, index) => (
-          <Tab ml={index === 0 ? 12 : 0} key={tab.name}>
+          <Tab
+            color={"black"}
+            ml={index === 0 ? 12 : 0}
+            key={tab.name}
+            _selected={{
+              color: "blue.700",
+              borderBottomWidth: 8,
+              borderColor: "blue.700",
+            }}
+            _focus={{ borderColor: "blue.700" }}
+          >
             {tab.name}
           </Tab>
         ))}
