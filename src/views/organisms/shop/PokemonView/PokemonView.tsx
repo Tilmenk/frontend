@@ -1,14 +1,29 @@
-import { Box, VStack, Wrap } from "@chakra-ui/react";
+import { Box, Center, VStack, Wrap } from "@chakra-ui/react";
 import { PokemonCard } from "../../../molecules/shop/PokemonCard/PokemonCard";
 import { ShopPagination } from "../../../molecules/shop/ShopPagination/ShopPagination";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { usePokemonContext } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
+import { Loading } from "../../../atoms/animations/Loading/Loading";
 
 export const PokemonView = () => {
   const pokemonContext = usePokemonContext();
   const [pageNumber, setPageNumber] = useState(0);
 
-  return (
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (pokemonContext.pokemonAvailable.length > 0) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+  }, [pokemonContext.pokemonAvailable]);
+
+  return loading ? (
+    <Center mt={100}>
+      <Loading size={200} />
+    </Center>
+  ) : (
     <VStack my={4}>
       <Wrap
         spacing={4}
@@ -23,6 +38,7 @@ export const PokemonView = () => {
             <PokemonCard key={pokemon.name + index} pokemon={pokemon} />
           ))}
       </Wrap>
+
       <Box shadow={"lg"}>
         <ShopPagination
           total={pokemonContext.pokemonAvailable.length}
