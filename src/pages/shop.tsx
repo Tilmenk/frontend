@@ -56,7 +56,7 @@ const ShopPage = () => {
         boxShadow={"lg"}
         justifyContent={"center"}
       >
-        {loginContext.token === undefined || usingHttp ? (
+        {loginContext.token === undefined || !usingHttp ? (
           <VStack mt={20}>
             <chakra.h1
               fontFamily={"Outfit"}
