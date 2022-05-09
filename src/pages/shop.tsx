@@ -74,7 +74,7 @@ const ShopPage = () => {
                 : "Please login to see the shop."}
             </chakra.h1>
             <Image src={"/images/spongeboss.png"} height={300} w={300} />
-            <LoginButton />
+            <LoginButton disabled={!usingHttp} />
           </VStack>
         ) : (
           <ShopTabs

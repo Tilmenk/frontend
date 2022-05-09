@@ -27,7 +27,7 @@ import { Loading } from "../../../atoms/animations/Loading/Loading";
 import axios from "axios";
 import { BACKEND_URL } from "../../../../lib/constants/constants";
 
-export const LoginButton = () => {
+export const LoginButton = (props: { disabled: boolean }) => {
   const loginContext = useLoginContext();
 
   //LOGIN OR REGISTER
@@ -144,6 +144,7 @@ export const LoginButton = () => {
   return (
     <>
       <Button
+        disabled={props.disabled}
         colorScheme={"teal"}
         onClick={() => {
           setOverlay(<OverlayOne />);
