@@ -69,7 +69,6 @@ export const TeamTable = (props: {
 
   const deleteTeam = (index: number, teamName: string, teamId: number) => {
     setDeleteLoading({ ...deleteLoading, [teamName]: true });
-    console.log(teamId);
 
     axios({
       headers: { Authorization: `Bearer ${loginContext.token}` },

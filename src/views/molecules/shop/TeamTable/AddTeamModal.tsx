@@ -83,7 +83,6 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
     }
 
     if (teamContext.teams.custom.find((team) => team.name === input_name)) {
-      console.log("filter true");
       setCreateError("nameAlreadyExists");
       return;
     }
@@ -108,11 +107,9 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
         (successResponse) => {
           setLoading(false);
           teamContext.fetchTeams();
-          console.log(successResponse);
         },
         (errorResponse) => {
           setLoading(false);
-          console.log(errorResponse);
         }
       );
     } else {

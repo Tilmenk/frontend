@@ -70,7 +70,6 @@ export const PokemonProvider: FC<any> = (props) => {
         (successResponse) => {
           const { data: payLoad } = successResponse;
           const { data: pokemon } = payLoad;
-          console.log(pokemon);
           setPokemonAvailable(pokemon);
         },
         (errorResponse) => {
@@ -86,8 +85,6 @@ export const PokemonProvider: FC<any> = (props) => {
   function getPokemonByName(name: string): Pokemon {
     let pokemon: Pokemon | undefined = undefined;
     pokemon = pokemonAvailable.find((pokemon) => pokemon.name === name);
-    if (!pokemon) console.log("Pokemon named '" + name + "' not found!");
-
     return pokemon;
   }
 
