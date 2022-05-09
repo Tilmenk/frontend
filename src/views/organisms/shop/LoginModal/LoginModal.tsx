@@ -25,6 +25,7 @@ import React, { useState } from "react";
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
 import { Loading } from "../../../atoms/animations/Loading/Loading";
 import axios from "axios";
+import { BACKEND_URL } from "../../../../lib/constants/constants";
 
 export const LoginButton = () => {
   const loginContext = useLoginContext();
@@ -45,7 +46,7 @@ export const LoginButton = () => {
 
     axios({
       method: "post",
-      url: process.env.BACKEND_URL + "/user",
+      url: BACKEND_URL + "/user",
       data: {
         email: input_mail,
         firstName: input_name,
@@ -55,7 +56,6 @@ export const LoginButton = () => {
       (successResponse) => {
         const { data: payLoad } = successResponse;
         const { message, data } = payLoad;
-        console.log(payLoad);
         if (message != undefined) {
           setRegisteringSuccess(true);
         } else {
@@ -72,10 +72,9 @@ export const LoginButton = () => {
   const handleClick_login = () => {
     setLoading(true);
     setLoginError(false);
-    console.log(process.env);
     axios({
       method: "post",
-      url: process.env.BACKEND_URL + "/login",
+      url: BACKEND_URL + "/login",
       data: {
         email: input_mail,
         password: input_pw,

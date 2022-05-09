@@ -35,6 +35,7 @@ import { Loading } from "../../../atoms/animations/Loading/Loading";
 import { useTeamContext } from "../../../../lib/network_data/teamProvider/TeamProvider";
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
 import axios from "axios";
+import { BACKEND_URL } from "../../../../lib/constants/constants";
 
 const customStyles = {
   option: (provided, state) => ({
@@ -96,7 +97,7 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
       axios({
         headers: { Authorization: `Bearer ${loginContext.token}` },
         method: "post",
-        url: process.env.BACKEND_URL + "/team",
+        url: BACKEND_URL + "/team",
         data: {
           name: input_name,
           pokemon: Object.keys(selectedPokemonState).map(

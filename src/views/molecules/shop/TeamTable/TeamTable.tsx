@@ -35,6 +35,7 @@ import { AddTeamModal } from "./AddTeamModal";
 import { Loading } from "../../../atoms/animations/Loading/Loading";
 import axios from "axios";
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
+import { BACKEND_URL } from "../../../../lib/constants/constants";
 
 export const TEAMTABLEVARIANTS = {
   custom: "custom",
@@ -73,7 +74,7 @@ export const TeamTable = (props: {
     axios({
       headers: { Authorization: `Bearer ${loginContext.token}` },
       method: "delete",
-      url: process.env.BACKEND_URL + `/team/${teamId}`,
+      url: BACKEND_URL + `/team/${teamId}`,
     }).then(
       (successResponse) => {
         setDeleteLoading({ ...deleteLoading, [teamName]: false });

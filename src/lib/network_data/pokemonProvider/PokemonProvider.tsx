@@ -9,6 +9,7 @@ import React, {
 import { CURRENCY } from "../../currency/CurrencyProvider";
 import { useLoginContext } from "../../login/LoginProvider";
 import axios from "axios";
+import { BACKEND_URL } from "../../constants/constants";
 
 const LoginContext = createContext(undefined);
 
@@ -64,7 +65,7 @@ export const PokemonProvider: FC<any> = (props) => {
       axios({
         headers: { Authorization: `Bearer ${loginContext.token}` },
         method: "get",
-        url: process.env.BACKEND_URL + "/pokemon",
+        url: BACKEND_URL + "/pokemon",
       }).then(
         (successResponse) => {
           const { data: payLoad } = successResponse;
