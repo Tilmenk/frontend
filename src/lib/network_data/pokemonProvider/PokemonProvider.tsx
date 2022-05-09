@@ -70,6 +70,8 @@ export const PokemonProvider: FC<any> = (props) => {
         (successResponse) => {
           const { data: payLoad } = successResponse;
           const { data: pokemon } = payLoad;
+          pokemon.sort((a, b) => a.name.localeCompare(b.name));
+
           setPokemonAvailable(pokemon);
         },
         (errorResponse) => {
