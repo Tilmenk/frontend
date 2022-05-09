@@ -24,35 +24,81 @@ import {
 import React, { useState } from "react";
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
 import { Loading } from "../../../atoms/animations/Loading/Loading";
+import axios from "axios";
 
 export const LoginButton = () => {
   const loginContext = useLoginContext();
 
   //LOGIN OR REGISTER
-  const registrating_default = false;
-  const [registrating, setRegistrating] = useState(registrating_default);
-  const [registratingSuccess, setRegistratingSuccess] =
-    useState(registrating_default);
+  const registering_default = false;
+  const [registering, setRegistering] = useState(registering_default);
+  const [registeringError, setRegisteringError] = useState<String | undefined>(
+    undefined
+  );
+  const [registeringSuccess, setRegisteringSuccess] =
+    useState(registering_default);
 
   const handleClick_register = () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setRegistratingSuccess(true);
-    }, 2000);
+    setRegisteringSuccess(false);
+    setRegisteringError(undefined);
+
+    axios({
+      method: "post",
+      url: process.env.BACKEND_URL + "/user",
+      data: {
+        email: input_mail,
+        firstName: input_name,
+        password: input_pw,
+      },
+    }).then(
+      (successResponse) => {
+        const { data: payLoad } = successResponse;
+        const { message, data } = payLoad;
+        console.log(payLoad);
+        if (message != undefined) {
+          setRegisteringSuccess(true);
+        } else {
+        }
+        setTimeout(() => setLoading(false), 500);
+      },
+      (errorResponse) => {
+        const { message: responseMessage } = errorResponse?.response?.data;
+        setRegisteringError(responseMessage);
+        setTimeout(() => setLoading(false), 500);
+      }
+    );
   };
   const handleClick_login = () => {
     setLoading(true);
     setLoginError(false);
-    setTimeout(() => {
-      setLoading(false);
-      if (input_mail === "obi-wan") {
-        loginContext.setToken("mock_tocken");
-      } else {
+    console.log(process.env);
+    axios({
+      method: "post",
+      url: process.env.BACKEND_URL + "/login",
+      data: {
+        email: input_mail,
+        password: input_pw,
+      },
+    }).then(
+      (successResponse) => {
+        const { data } = successResponse;
+        const { access_token } = data;
+        if (access_token != undefined) {
+          loginContext.setToken(access_token);
+          loginContext.setName(input_mail);
+        } else {
+          setLoginError(true);
+        }
+        setTimeout(() => setLoading(false), 500);
+      },
+      (errorResponse) => {
         setLoginError(true);
+        setTimeout(() => setLoading(false), 500);
       }
-    }, 2000);
+    );
   };
+
   const [loading, setLoading] = useState(false);
   const [loginError, setLoginError] = useState(false);
 
@@ -66,6 +112,7 @@ export const LoginButton = () => {
   //NAME
   const [input_name, setInput_name] = useState(input_default);
   const handleInputChange_name = (e) => setInput_name(e.target.value);
+  const isError_name = input_name === "";
 
   // PASSWORD
   const showPassword_default = false;
@@ -73,6 +120,7 @@ export const LoginButton = () => {
   const [input_pw, setInput_pw] = useState(input_default);
   const handleInputChange_pw = (e) => setInput_pw(e.target.value);
   const handleClick_ShowPw = () => setShow(!show);
+  const isError_pw = input_pw === "";
 
   const OverlayOne = () => (
     <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px) " />
@@ -80,13 +128,14 @@ export const LoginButton = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure({
     onClose() {
-      setRegistrating(registrating_default);
+      setRegistering(registering_default);
       setLoginError(false);
       setInput_mail(input_default);
       setInput_name(input_default);
       setInput_pw(input_default);
+      setShow(false);
       setLoading(false);
-      setRegistratingSuccess(false);
+      setRegisteringSuccess(false);
       setLoginError(false);
     },
   });
@@ -109,11 +158,11 @@ export const LoginButton = () => {
         {overlay}
         <ModalContent>
           <ModalHeader>
-            Please enter {registrating ? "register" : " login"} credentials.
+            Please enter {registering ? "register" : " login"} credentials.
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <FormControl isRequired={registrating}>
+            <FormControl isRequired={registering}>
               <FormLabel htmlFor="email">Email address</FormLabel>
               <Input
                 id="email"
@@ -121,15 +170,15 @@ export const LoginButton = () => {
                 value={input_mail}
                 onChange={handleInputChange_mail}
               />
-              {registrating ? (
+              {registering ? (
                 <FormHelperText>We'll never share your email.</FormHelperText>
               ) : null}
-              {isError_mail ? (
-                <FormErrorMessage>Email is required.</FormErrorMessage>
+              {registeringError ? (
+                <FormErrorMessage>registeringError</FormErrorMessage>
               ) : undefined}
             </FormControl>
-            {registrating ? (
-              <FormControl isRequired={registrating}>
+            {registering ? (
+              <FormControl isRequired={registering}>
                 <FormLabel htmlFor="firstName">First name</FormLabel>
                 <Input
                   id="email"
@@ -137,27 +186,25 @@ export const LoginButton = () => {
                   value={input_name}
                   onChange={handleInputChange_name}
                 />
-                {registrating ? (
+                {registering ? (
                   <FormHelperText>We'd like to greet you!</FormHelperText>
                 ) : null}
-                {isError_mail ? (
-                  <FormErrorMessage>Email is required.</FormErrorMessage>
-                ) : undefined}
               </FormControl>
             ) : null}
             <InputGroup size="md" mt={2}>
               <Input
-                isRequired={registrating}
+                isRequired={registering}
                 pr="4.5rem"
                 type={show ? "text" : "password"}
                 placeholder="Enter password"
+                onChange={handleInputChange_pw}
               />
               <InputRightElement width="4.5rem">
                 <Button h="1.75rem" size="sm" onClick={handleClick_ShowPw}>
                   {show ? "Hide" : "Show"}
                 </Button>
               </InputRightElement>
-              {registrating ? (
+              {registering ? (
                 <FormHelperText>We'll never share your email.</FormHelperText>
               ) : null}
             </InputGroup>
@@ -168,9 +215,13 @@ export const LoginButton = () => {
                 <Box position={"absolute"} left={6}>
                   {loading ? (
                     <Loading size={20} />
-                  ) : registrating ? (
-                    registratingSuccess ? (
+                  ) : registering ? (
+                    registeringSuccess ? (
                       <chakra.p color={"green"}> account created! </chakra.p>
+                    ) : registeringError ? (
+                      <chakra.p color={"red"} w={250}>
+                        {registeringError}
+                      </chakra.p>
                     ) : undefined
                   ) : loginError ? (
                     <chakra.p color={"red"}> invalid credentials </chakra.p>
@@ -180,17 +231,22 @@ export const LoginButton = () => {
                 </Box>
 
                 <HStack>
-                  {registrating ? (
-                    <Button onClick={handleClick_register}>Register</Button>
+                  {registering ? (
+                    <Button
+                      onClick={handleClick_register}
+                      disabled={isError_mail || isError_name || isError_pw}
+                    >
+                      Register
+                    </Button>
                   ) : (
                     <Button onClick={handleClick_login}>Login</Button>
                   )}
                   <Button onClick={onClose}>Close</Button>
                 </HStack>
               </HStack>
-              {registrating ? (
+              {registering ? (
                 <Button
-                  onClick={() => setRegistrating(false)}
+                  onClick={() => setRegistering(false)}
                   mr={2}
                   variant="link"
                 >
@@ -198,7 +254,7 @@ export const LoginButton = () => {
                 </Button>
               ) : (
                 <Button
-                  onClick={() => setRegistrating(true)}
+                  onClick={() => setRegistering(true)}
                   mr={2}
                   variant="link"
                 >

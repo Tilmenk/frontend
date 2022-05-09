@@ -55,4 +55,6 @@ export const returnAsciiCurrencySymbol = (currency: Currency) => {
 };
 
 export const getCostsFormatted = (currency: Currency, costs: number) =>
-  costs.toFixed(2) + " " + returnAsciiCurrencySymbol(currency);
+  costs.toFixed(currency === CURRENCY.bitcoin ? 3 : 2) +
+  " " +
+  returnAsciiCurrencySymbol(currency);
