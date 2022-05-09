@@ -27,6 +27,19 @@ import { Media } from "../lib/responsive/Media";
 const ShopPage = () => {
   const loginContext = useLoginContext();
 
+  const [usingHttp, setUsingHttp] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    if (window.location.protocol === "http:") {
+      setUsingHttp(true);
+    } else {
+      setUsingHttp(false);
+    }
+  });
+
   const supportedScreenSizeComponent = (
     <Flex
       justifyContent={"center"}
@@ -43,7 +56,7 @@ const ShopPage = () => {
         boxShadow={"lg"}
         justifyContent={"center"}
       >
-        {loginContext.token === undefined ? (
+        {loginContext.token === undefined || usingHttp ? (
           <VStack mt={20}>
             <chakra.h1
               fontFamily={"Outfit"}
@@ -56,7 +69,9 @@ const ShopPage = () => {
                 COLOR.background2_dark
               )}
             >
-              Please login to see the shop.
+              {!usingHttp
+                ? "Please use http, not https to connect."
+                : "Please login to see the shop."}
             </chakra.h1>
             <Image src={"/images/spongeboss.png"} height={300} w={300} />
             <LoginButton />
