@@ -34,6 +34,7 @@ import { camelCaseAttributes } from "framer-motion/types/render/svg/utils/camel-
 import { Loading } from "../../../atoms/animations/Loading/Loading";
 import { useTeamContext } from "../../../../lib/network_data/teamProvider/TeamProvider";
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
+import axios from "axios";
 
 const customStyles = {
   option: (provided, state) => ({
@@ -75,7 +76,6 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
   const createTeam = () => {
     setCreateError("");
 
-    console.log(input_name);
     if (input_name.length < 1) {
       setCreateError("nameTooShort");
       return;
@@ -93,21 +93,27 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
       )
     ) {
       setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        teamContext.setTeams({
-          ...teamContext.teams,
-          custom: [
-            ...teamContext.teams.custom,
-            {
-              name: input_name,
-              creator: loginContext.name,
-              pokemon: Object.values(selectedPokemonState),
-            },
-          ],
-        });
-        onClose();
-      }, 1000);
+      axios({
+        headers: { Authorization: `Bearer ${loginContext.token}` },
+        method: "post",
+        url: process.env.BACKEND_URL + "/team",
+        data: {
+          name: input_name,
+          pokemon: Object.keys(selectedPokemonState).map(
+            (key) => selectedPokemonState[key]
+          ),
+        },
+      }).then(
+        (successResponse) => {
+          setLoading(false);
+          teamContext.fetchTeams();
+          console.log(successResponse);
+        },
+        (errorResponse) => {
+          setLoading(false);
+          console.log(errorResponse);
+        }
+      );
     } else {
       setCreateError("notEnoughPokemon");
     }

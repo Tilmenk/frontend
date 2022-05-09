@@ -31,7 +31,7 @@ export const PokemonCard = (props: {
     <Skeleton isLoaded={!fetching} {...props}>
       <Flex direction="column" justifyContent="center" alignItems="center">
         <Img
-          src={props.pokemon.sprites.large}
+          src={props.pokemon.imageUrl_large}
           objectFit={"scale-down"}
           bg={props.pokemon.legendary ? "#FFD60A" : "gray.300"}
           h={{ lg: 180, xl: 200 }}

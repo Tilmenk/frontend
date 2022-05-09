@@ -5,8 +5,8 @@ const LoginContext = createContext(undefined);
 export const LoginProvider: FC<any> = (props) => {
   //[React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>, T] {
 
-  const [token, setToken] = useState("undefined");
-  const [name, setName] = useState("Obi-Wan");
+  const [token, setToken] = useState(undefined);
+  const [name, setName] = useState(undefined);
 
   return (
     <LoginContext.Provider value={{ token, setToken, name, setName }}>

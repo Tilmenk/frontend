@@ -33,6 +33,8 @@ import {
 import { capitalizeFirstLetter } from "../../../../lib/msc/StringMethods";
 import { AddTeamModal } from "./AddTeamModal";
 import { Loading } from "../../../atoms/animations/Loading/Loading";
+import axios from "axios";
+import { useLoginContext } from "../../../../lib/login/LoginProvider";
 
 export const TEAMTABLEVARIANTS = {
   custom: "custom",
@@ -50,6 +52,8 @@ export const TeamTable = (props: {
   variant: TeamTableVariant;
   isCustomTeams?: boolean;
 }) => {
+  const loginContext = useLoginContext();
+
   const { isCustomTeams } = props;
 
   const { bg, bg2, bg3 } = props.bgColors;
@@ -62,9 +66,24 @@ export const TeamTable = (props: {
     Object.fromEntries(props.teams.map((team, index) => [team.name, false]))
   );
 
-  const deleteTeam = (index: number, teamName: string) => {
+  const deleteTeam = (index: number, teamName: string, teamId: number) => {
     setDeleteLoading({ ...deleteLoading, [teamName]: true });
-    if (isCustomTeams) {
+    console.log(teamId);
+
+    axios({
+      headers: { Authorization: `Bearer ${loginContext.token}` },
+      method: "delete",
+      url: process.env.BACKEND_URL + `/team/${teamId}`,
+    }).then(
+      (successResponse) => {
+        setDeleteLoading({ ...deleteLoading, [teamName]: false });
+        teamContext.fetchTeams();
+      },
+      (errorResponse) => {
+        setDeleteLoading({ ...deleteLoading, [teamName]: false });
+      }
+    );
+    /* if (isCustomTeams) {
       setTimeout(() => {
         const tempTeam = teamContext.teams.custom;
         tempTeam.splice(index, 1);
@@ -74,7 +93,7 @@ export const TeamTable = (props: {
         });
         setDeleteLoading({ ...deleteLoading, [teamName]: false });
       }, 1000);
-    }
+    }*/
   };
 
   return (
@@ -144,7 +163,7 @@ export const TeamTable = (props: {
                                 label={capitalizeFirstLetter(pokemon.name)}
                               >
                                 <Image
-                                  src={pokemon.sprites.small}
+                                  src={pokemon.imageUrl_small}
                                   boxSize={55}
                                   objectFit="cover"
                                 />
@@ -193,7 +212,9 @@ export const TeamTable = (props: {
                           variant="outline"
                           icon={<BsFillTrashFill />}
                           aria-label={"test"}
-                          onClick={() => deleteTeam(teamIndex, team.name)}
+                          onClick={() =>
+                            deleteTeam(teamIndex, team.name, team.id)
+                          }
                         />
                       )}
                     </>
