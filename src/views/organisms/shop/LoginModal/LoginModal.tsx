@@ -20,12 +20,14 @@ import {
   HStack,
   Box,
   chakra,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
 import { Loading } from "../../../atoms/animations/Loading/Loading";
 import axios from "axios";
 import { BACKEND_URL } from "../../../../lib/constants/constants";
+import { COLOR } from "../../../../theme/Color";
 
 export const LoginButton = (props: { disabled: boolean }) => {
   const loginContext = useLoginContext();
@@ -157,18 +159,24 @@ export const LoginButton = (props: { disabled: boolean }) => {
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
         <ModalContent>
-          <ModalHeader>
+          <ModalHeader color={useColorModeValue(COLOR.black, COLOR.white)}>
             Please enter {registering ? "register" : " login"} credentials.
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton
+            color={useColorModeValue(COLOR.black, COLOR.white)}
+          />
           <ModalBody>
-            <FormControl isRequired={registering}>
+            <FormControl
+              isRequired={registering}
+              color={useColorModeValue(COLOR.black, COLOR.white)}
+            >
               <FormLabel htmlFor="email">Email address</FormLabel>
               <Input
                 id="email"
                 type="email"
                 value={input_mail}
                 onChange={handleInputChange_mail}
+                color={useColorModeValue(COLOR.black, COLOR.white)}
               />
               {registering ? (
                 <FormHelperText>We'll never share your email.</FormHelperText>
@@ -179,12 +187,18 @@ export const LoginButton = (props: { disabled: boolean }) => {
             </FormControl>
             {registering ? (
               <FormControl isRequired={registering}>
-                <FormLabel htmlFor="firstName">First name</FormLabel>
+                <FormLabel
+                  htmlFor="firstName"
+                  color={useColorModeValue(COLOR.black, COLOR.white)}
+                >
+                  First name
+                </FormLabel>
                 <Input
                   id="email"
                   type="email"
                   value={input_name}
                   onChange={handleInputChange_name}
+                  color={useColorModeValue(COLOR.black, COLOR.white)}
                 />
                 {registering ? (
                   <FormHelperText>We'd like to greet you!</FormHelperText>
@@ -198,9 +212,15 @@ export const LoginButton = (props: { disabled: boolean }) => {
                 type={show ? "text" : "password"}
                 placeholder="Enter password"
                 onChange={handleInputChange_pw}
+                color={useColorModeValue(COLOR.black, COLOR.white)}
               />
               <InputRightElement width="4.5rem">
-                <Button h="1.75rem" size="sm" onClick={handleClick_ShowPw}>
+                <Button
+                  h="1.75rem"
+                  size="sm"
+                  onClick={handleClick_ShowPw}
+                  color={useColorModeValue(COLOR.black, COLOR.white)}
+                >
                   {show ? "Hide" : "Show"}
                 </Button>
               </InputRightElement>
@@ -235,13 +255,24 @@ export const LoginButton = (props: { disabled: boolean }) => {
                     <Button
                       onClick={handleClick_register}
                       disabled={isError_mail || isError_name || isError_pw}
+                      color={useColorModeValue(COLOR.black, COLOR.white)}
                     >
                       Register
                     </Button>
                   ) : (
-                    <Button onClick={handleClick_login}>Login</Button>
+                    <Button
+                      onClick={handleClick_login}
+                      color={useColorModeValue(COLOR.black, COLOR.white)}
+                    >
+                      Login
+                    </Button>
                   )}
-                  <Button onClick={onClose}>Close</Button>
+                  <Button
+                    onClick={onClose}
+                    color={useColorModeValue(COLOR.black, COLOR.white)}
+                  >
+                    Close
+                  </Button>
                 </HStack>
               </HStack>
               {registering ? (
@@ -249,6 +280,7 @@ export const LoginButton = (props: { disabled: boolean }) => {
                   onClick={() => setRegistering(false)}
                   mr={2}
                   variant="link"
+                  color={useColorModeValue(COLOR.black, COLOR.white)}
                 >
                   back to login
                 </Button>
@@ -257,6 +289,7 @@ export const LoginButton = (props: { disabled: boolean }) => {
                   onClick={() => setRegistering(true)}
                   mr={2}
                   variant="link"
+                  color={useColorModeValue(COLOR.black, COLOR.white)}
                 >
                   no account? register here
                 </Button>

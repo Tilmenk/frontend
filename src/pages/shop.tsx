@@ -63,10 +63,7 @@ const ShopPage = () => {
               fontSize={{ base: "3xl", md: "4xl" }}
               fontWeight="bold"
               lineHeight="shorter"
-              color={useColorModeValue(
-                COLOR.foreground2,
-                COLOR.background2_dark
-              )}
+              color={useColorModeValue(COLOR.white, COLOR.background2_dark)}
             >
               {!usingHttp
                 ? "Please use http, not https to connect."

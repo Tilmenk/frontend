@@ -23,6 +23,7 @@ import {
 } from "../../../../lib/currency/CurrencyProvider";
 import { capitalizeFirstLetter } from "../../../../lib/msc/StringMethods";
 import { Pokemon } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
+import { COLOR } from "../../../../theme/Color";
 
 const PokemonTypeToColor = {
   Normal: "gray",
@@ -70,10 +71,17 @@ export const PokemonDetailButton = (props: {
         {overlay}
         <ModalContent>
           <ModalHeader>
-            <chakra.p> {capitalizeFirstLetter(props.pokemon.name)} </chakra.p>
+            <chakra.p color={useColorModeValue(COLOR.black, COLOR.white)}>
+              {capitalizeFirstLetter(props.pokemon.name)}
+            </chakra.p>
           </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody px={12}>
+          <ModalCloseButton
+            color={useColorModeValue(COLOR.black, COLOR.white)}
+          />
+          <ModalBody
+            px={12}
+            color={useColorModeValue(COLOR.black, COLOR.white)}
+          >
             <HStack justifyContent={"space-between"}>
               <VStack alignItems={"flex-start"}>
                 <HStack>

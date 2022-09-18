@@ -35,6 +35,7 @@ import { useTeamContext } from "../../../../lib/network_data/teamProvider/TeamPr
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
 import axios from "axios";
 import { BACKEND_URL } from "../../../../lib/constants/constants";
+import { COLOR } from "../../../../theme/Color";
 
 const customStyles = {
   option: (provided, state) => ({
@@ -150,11 +151,18 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
         {overlay}
         <ModalContent>
           <ModalHeader>
-            <chakra.p> Choose 6 Pokemon! </chakra.p>
+            <chakra.p color={useColorModeValue(COLOR.black, COLOR.white)}>
+              Choose 6 Pokemon!
+            </chakra.p>
           </ModalHeader>
-          <ModalCloseButton />
+          <ModalCloseButton
+            color={useColorModeValue(COLOR.black, COLOR.white)}
+          />
           <ModalBody px={12}>
-            <VStack alignItems={"flex-start"}>
+            <VStack
+              alignItems={"flex-start"}
+              color={useColorModeValue(COLOR.black, COLOR.white)}
+            >
               <HStack w={"full"} justifyContent={"space-between"}>
                 <chakra.p mr={4}>Pokemon 1:</chakra.p>
                 <Select
@@ -247,13 +255,19 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
               </HStack>
             </VStack>
             <FormControl isRequired={true} mt={4}>
-              <FormLabel htmlFor="firstName">Team name</FormLabel>
+              <FormLabel
+                htmlFor="firstName"
+                color={useColorModeValue(COLOR.black, COLOR.white)}
+              >
+                Team name
+              </FormLabel>
               <Input
                 maxLength={12}
                 id="email"
                 type="email"
                 value={input_name}
                 onChange={handleInputChange_name}
+                color={useColorModeValue(COLOR.black, COLOR.white)}
               />
             </FormControl>
           </ModalBody>
@@ -271,8 +285,18 @@ export const AddTeamModal = (props: { button: JSX.Element }) => {
                 ) : undefined}
                 <Box />
               </Box>
-              <Button onClick={onClose}> cancel </Button>
-              <Button onClick={createTeam}> create </Button>
+              <Button
+                color={useColorModeValue(COLOR.black, COLOR.white)}
+                onClick={onClose}
+              >
+                cancel
+              </Button>
+              <Button
+                color={useColorModeValue(COLOR.black, COLOR.white)}
+                onClick={createTeam}
+              >
+                create
+              </Button>
             </HStack>
             <VStack />
           </ModalFooter>

@@ -36,6 +36,7 @@ import { Loading } from "../../../atoms/animations/Loading/Loading";
 import axios from "axios";
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
 import { BACKEND_URL } from "../../../../lib/constants/constants";
+import { COLOR } from "../../../../theme/Color";
 
 export const TEAMTABLEVARIANTS = {
   custom: "custom",
@@ -137,20 +138,23 @@ export const TeamTable = (props: {
               px={10}
               fontWeight="hairline"
               alignItems={"center"}
+              color={useColorModeValue(COLOR.black, COLOR.white)}
             >
               <span>{team.name}</span>
               <chakra.span
                 textOverflow="ellipsis"
                 overflow="hidden"
                 whiteSpace="nowrap"
+                color={useColorModeValue(COLOR.black, COLOR.white)}
               >
                 {team.creator ? team.creator : "default"}
               </chakra.span>
               <Flex>
                 <HStack>
-                  {team.pokemon.map((pokemonName, index) => {
+                  {team?.pokemon.map((pokemonName, index) => {
                     const pokemon =
                       pokemonContext.getPokemonByName(pokemonName);
+                    if (!pokemon) return;
                     return (
                       <PokemonDetailButton
                         key={pokemonName + index}
@@ -160,7 +164,11 @@ export const TeamTable = (props: {
                             key={pokemonName}
                             icon={
                               <Tooltip
-                                label={capitalizeFirstLetter(pokemon.name)}
+                                label={
+                                  pokemon?.name
+                                    ? capitalizeFirstLetter(pokemon.name)
+                                    : undefined
+                                }
                               >
                                 <Image
                                   src={pokemon.imageUrl_small}
@@ -187,7 +195,7 @@ export const TeamTable = (props: {
                   team.pokemon
                     .map(
                       (pokemonName) =>
-                        pokemonContext.getPokemonByName(pokemonName).costs[
+                        pokemonContext.getPokemonByName(pokemonName)?.costs[
                           currencyContext.currencySelected
                         ]
                     )
@@ -235,7 +243,12 @@ export const TeamTable = (props: {
             <Center w="full" py={2} px={10}>
               <AddTeamModal
                 button={
-                  <Button rightIcon={<RiAddFill />} size={"md"} w={70}>
+                  <Button
+                    rightIcon={<RiAddFill />}
+                    size={"md"}
+                    w={70}
+                    color={useColorModeValue(COLOR.black, COLOR.white)}
+                  >
                     add
                   </Button>
                 }
