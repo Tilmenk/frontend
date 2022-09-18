@@ -30,7 +30,6 @@ import {
   usePokemonContext,
 } from "../../../../lib/network_data/pokemonProvider/PokemonProvider";
 import Select from "react-select";
-import { camelCaseAttributes } from "framer-motion/types/render/svg/utils/camel-case-attrs";
 import { Loading } from "../../../atoms/animations/Loading/Loading";
 import { useTeamContext } from "../../../../lib/network_data/teamProvider/TeamProvider";
 import { useLoginContext } from "../../../../lib/login/LoginProvider";
