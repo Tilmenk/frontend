@@ -6,7 +6,6 @@ import {
   Image,
   useColorModeValue,
   VStack,
-  Wrap,
 } from "@chakra-ui/react";
 import { COLOR } from "../theme/Color";
 import { PADDING } from "../theme/LayoutSizes";
